@@ -63,6 +63,8 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -202,6 +204,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   factory_girl_rails (~> 4.0)
+  faker (~> 1.8.4)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)

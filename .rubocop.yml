@@ -27,7 +27,7 @@ Style/BlockDelimiters:
   Exclude:
     - 'spec/controllers/**/*'
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
 
 Style/EmptyMethod:
@@ -45,10 +45,15 @@ Style/TrailingCommaInLiteral:
 Rails:
   Enabled: true
 
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/system/**/*'
+
 RSpec/ExampleLength:
   Exclude:
     - 'spec/controllers/**/*'
     - 'spec/helpers/**/*'
+    - 'spec/views/**/*'
 
 RSpec/ExpectActual:
   Exclude:

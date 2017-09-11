@@ -31,8 +31,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
+  gem 'rack-livereload'
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'rubocop-rspec', require: false
   gem 'spring'

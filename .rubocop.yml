@@ -1,0 +1,63 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/controllers/**/*'
+    - 'spec/helpers/**/*'
+    - 'spec/models/**/*'
+    - 'spec/policies/**/*'
+    - 'spec/routing/**/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/controllers/**/*'
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/controllers/**/*'
+
+Style/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Rails:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/controllers/**/*'
+    - 'spec/helpers/**/*'
+
+RSpec/ExpectActual:
+  Exclude:
+    - 'spec/routing/**/*'
+
+RSpec/RepeatedExample:
+  Exclude:
+    - 'spec/policies/**/*'
+
+RSpec/RepeatedDescription:
+  Exclude:
+    - 'spec/policies/**/*'

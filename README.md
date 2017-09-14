@@ -1,24 +1,17 @@
-# README
+# Bookmark Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Easily save and search your bookmarks.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone this repository.
 
-* System dependencies
+	% git clone https://github.com/christopherstyles/bookmark-manager.git
 
-* Configuration
+Setup dependencies and create the databases.
 
-* Database creation
+    % bin/setup
 
-* Database initialization
+Run the server.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    % rails s

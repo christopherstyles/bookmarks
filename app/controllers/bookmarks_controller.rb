@@ -23,6 +23,7 @@ class BookmarksController < ApplicationController
 
   # POST /bookmarks
   # POST /bookmarks.json
+  # rubocop:disable Metrics/MethodLength
   def create
     @bookmark = Bookmark.new(bookmark_params)
 
@@ -41,9 +42,11 @@ class BookmarksController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # PATCH/PUT /bookmarks/1
   # PATCH/PUT /bookmarks/1.json
+  # rubocop:disable Metrics/MethodLength
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
@@ -60,6 +63,7 @@ class BookmarksController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
@@ -83,6 +87,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:url)
+    params.require(:bookmark).permit(:tag_list, :url)
   end
 end

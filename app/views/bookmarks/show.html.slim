@@ -1,8 +1,12 @@
 p#notice = notice
 
 p
-  strong Url:
+  strong> Url:
   = @bookmark.url
+
+p
+  strong> Tags:
+  = @bookmark.tag_list
 
 = link_to 'Edit', edit_bookmark_path(@bookmark)
 '  |

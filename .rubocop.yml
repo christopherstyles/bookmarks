@@ -13,6 +13,7 @@ Documentation:
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/models/concerns/**/*'
     - 'spec/controllers/**/*'
     - 'spec/helpers/**/*'
     - 'spec/models/**/*'

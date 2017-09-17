@@ -1,0 +1,21 @@
+doctype 5
+html lang="en"
+  head
+    title Bookmark Manager
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container
+      .columns
+        .column
+          header.navbar.pt-2.pl-2
+            section.navbar-section
+              a.navbar-brand.mr-2 href="/bookmarks" Bookmarks
+              a.btn.btn-link target="_blank" href="https://github.com/christopherstyles/bookmark-manager" GitHub
+            section.navbar-section
+              .input-group.input-inline
+                input.form-input placeholder="search" type="text" /
+                button.btn.btn-primary.input-group-btn Search
+    .divider
+    = yield

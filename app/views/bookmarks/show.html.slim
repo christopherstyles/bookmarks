@@ -1,17 +1,20 @@
-p#notice = notice
+.container.grid-xs.pb-2
+  .columns
+    .column.col-12.pt-2
+      p#notice.text-success = notice
 
-p
-  strong> Title:
-  = @bookmark.title
+      - if @bookmark.title?
+        h4.mb-2 = @bookmark.title
 
-p
-  strong> Url:
-  = @bookmark.url
+      p.mb-2
+        = link_to @bookmark.url, @bookmark.url
 
-p
-  strong> Tags:
-  = @bookmark.tag_list
+      - if @bookmark.tags.any?
+        .mb-2
+          - @bookmark.tags.each do |tag|
+            span.chip = tag.name
 
-= link_to 'Edit', edit_bookmark_path(@bookmark)
-'  |
-= link_to 'Back', bookmarks_path
+    .column.col-12.pt-2
+      .btn-group
+        = link_to 'Edit', edit_bookmark_path(@bookmark), class: 'btn btn-primary'
+        = link_to 'Back', bookmarks_path, class: 'btn'

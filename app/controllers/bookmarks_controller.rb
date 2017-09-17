@@ -30,7 +30,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.save
         format.html do
-          redirect_to @bookmark, notice: 'Bookmark was successfully created.'
+          redirect_to @bookmark, notice: t('.success')
         end
 
         format.json { render :show, status: :created, location: @bookmark }
@@ -50,10 +50,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html do
-          redirect_to @bookmark, notice: 'Bookmark was successfully updated.'
-        end
-
+        format.html { redirect_to @bookmark, notice: t('.success') }
         format.json { render :show, status: :ok, location: @bookmark }
       else
         format.html { render :edit }
@@ -73,7 +70,7 @@ class BookmarksController < ApplicationController
       format.html do
         redirect_to(
           bookmarks_url,
-          notice: 'Bookmark was successfully destroyed.',
+          notice: t('.success'),
         )
       end
       format.json { head :no_content }

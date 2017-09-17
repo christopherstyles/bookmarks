@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  bookmarks:
+    create:
+      success: 'Bookmark was successfully created.'
+    destroy:
+      success: 'Bookmark was successfully destroyed.'
+    update:
+      success: 'Bookmark was successfully updated.'

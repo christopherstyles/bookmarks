@@ -5,25 +5,23 @@
         = fa_icon 'plus-circle', class: 'mr-1'
         | New Bookmark
 .container.pb-2.grid-sm
-  .columns
-    .column.col-12
-      - @bookmarks.each do |bookmark|
-        .columns.pb-3
-          .column.col-8
-            .d-block.mb-1
-              = link_to bookmark.url, target: '_blank', class: 'd-inline-block' do
-                = fa_icon 'external-link', class: 'mr-1'
-                - if bookmark.title?
-                  = link_to bookmark.title, bookmark.url, target: '_blank'
-                - else
-                  = link_to 'Visit', bookmark.url, target: '_blank'
-            .d-block.mb-1
-              - bookmark.tags.each do |tag|
-                span.chip = tag.name
-            small.d-block.text-ellipsis.text-gray
-                = bookmark.url
-          .column.col-4.text-right
-            .btn-group
-              = link_to 'Show', bookmark, class: 'btn btn-link'
-              = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-link'
-              = link_to 'Destroy', bookmark, class: 'btn btn-link', data: { confirm: 'Are you sure?' }, method: :delete
+  - @bookmarks.each do |bookmark|
+    .columns.pb-3
+      .column.col-8
+        .bookmark__title.d-block.mb-1
+          = link_to bookmark.url, target: '_blank', class: 'd-inline-block' do
+            = fa_icon 'external-link', class: 'mr-1'
+            - if bookmark.title?
+              = link_to bookmark.title, bookmark.url, target: '_blank'
+            - else
+              = link_to 'Visit', bookmark.url, target: '_blank'
+        .bookmark__tags.d-block.mb-1
+          - bookmark.tags.each do |tag|
+            span.chip = tag.name
+        small.bookmark__url.d-block.text-ellipsis.text-gray
+            = bookmark.url
+      .column.col-4.text-right
+        .btn-group
+          = link_to 'Show', bookmark, class: 'btn btn-link'
+          = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-link'
+          = link_to 'Destroy', bookmark, class: 'btn btn-link', data: { confirm: 'Are you sure?' }, method: :delete

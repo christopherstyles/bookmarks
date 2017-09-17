@@ -1,19 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'bookmarks/index', type: :view do
+  let(:title) { Faker::Lorem.sentence }
+  let!(:bookmark1) { create(:bookmark, title: title) }
+  let!(:bookmark2) { create(:bookmark, title: title) }
+
   before do
-    assign(:bookmarks, [
-             Bookmark.create!(
-               url: 'MyText',
-             ),
-             Bookmark.create!(
-               url: 'MyText',
-             ),
-           ])
+    assign(:bookmarks, [bookmark1, bookmark2])
   end
 
   it 'renders a list of bookmarks' do
     render
-    assert_select 'tr>td', text: 'MyText'.to_s, count: 2
+    assert_select '.bookmark__title', text: title, count: 2
   end
 end

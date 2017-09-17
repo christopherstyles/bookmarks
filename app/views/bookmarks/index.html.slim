@@ -3,6 +3,7 @@ h1 Listing bookmarks
 table
   thead
     tr
+      th Title
       th Url
       th
       th
@@ -11,6 +12,7 @@ table
   tbody
     - @bookmarks.each do |bookmark|
       tr
+        td = bookmark.title
         td = bookmark.url
         td = link_to 'Show', bookmark
         td = link_to 'Edit', edit_bookmark_path(bookmark)

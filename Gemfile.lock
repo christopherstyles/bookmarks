@@ -79,6 +79,8 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -236,6 +238,7 @@ GEM
       railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
+    spectre_scss (0.4.1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -279,6 +282,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   factory_girl_rails (~> 4.0)
   faker (~> 1.8.4)
+  font-awesome-rails
   guard
   guard-livereload (~> 2.5)
   guard-rspec
@@ -297,6 +301,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers!
   slim-rails (~> 3.1.2)
+  spectre_scss
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

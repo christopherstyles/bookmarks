@@ -14,6 +14,10 @@
           - @bookmark.tags.each do |tag|
             span.chip = tag.name
 
+      - if @bookmark.notes?
+        p
+          = markdown(@bookmark.notes).html_safe
+
     .column.col-12.pt-2
       .btn-group
         = link_to 'Edit', edit_bookmark_path(@bookmark), class: 'btn btn-primary'

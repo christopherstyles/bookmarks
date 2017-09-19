@@ -1,13 +1,13 @@
 {
   "name": "bookmark-manager",
   "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
   },
   "formation": {
   },
   "addons": [
-
   ],
   "buildpacks": [
     {
@@ -15,3 +15,4 @@
     }
   ]
 }
+

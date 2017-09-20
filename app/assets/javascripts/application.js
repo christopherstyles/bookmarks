@@ -12,4 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require simplemde.min
+//= require highlight.min
 //= require_tree .

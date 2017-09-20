@@ -20,3 +20,13 @@
     = f.text_area :notes, class: 'form-input'
   .actions
     = f.submit class: 'btn btn-primary'
+
+javascript:
+  var simplemde = new SimpleMDE({
+    autoDownloadFontAwesome: false,
+    element: document.getElementById("bookmark_notes"),
+    indentWithTabs: false,
+    renderingConfig: {
+      codeSyntaxHighlighting: true,
+    }
+  });

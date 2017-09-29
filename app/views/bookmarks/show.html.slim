@@ -16,7 +16,7 @@
 
       - if @bookmark.notes?
         p
-          = markdown(@bookmark.notes).html_safe
+          = sanitize(markdown(@bookmark.notes).html_safe)
 
     .column.col-12.pt-2
       .btn-group.mr-2

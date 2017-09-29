@@ -33,5 +33,10 @@ RSpec.describe BookmarksController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/bookmarks/1').to route_to('bookmarks#destroy', id: '1')
     end
+
+    it 'routes to #search' do
+      expect(get: '/bookmarks/search?q=rails,composition')
+        .to route_to('bookmarks#search', q: 'rails,composition')
+    end
   end
 end

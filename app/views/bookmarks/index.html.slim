@@ -1,21 +1,32 @@
 .container.pb-2.grid-sm
-  - @bookmarks.each do |bookmark|
-    .columns.pb-3
-      .column.col-8
-        .bookmark__title.d-block.mb-1
-          = link_to bookmark.url, target: '_blank', class: 'd-inline-block' do
-            = fa_icon 'external-link', class: 'mr-1'
-            - if bookmark.title?
-              = link_to bookmark.title, bookmark.url, target: '_blank'
-            - else
-              = link_to 'Visit', bookmark.url, target: '_blank'
-        .bookmark__tags.d-block.mb-1
-          - bookmark.tags.each do |tag|
-            span.chip = tag.name
-        small.bookmark__url.d-block.text-ellipsis.text-gray
-            = bookmark.url
-      .column.col-4.text-right
-        .btn-group
-          = link_to 'Show', bookmark, class: 'btn btn-outline'
-          = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-outline'
-          = link_to 'Destroy', bookmark, class: 'btn btn-outline', data: { confirm: 'Are you sure?' }, method: :delete
+  - if @bookmarks.any?
+    - @bookmarks.each do |bookmark|
+      .columns.pb-3
+        .column.col-8
+          .bookmark
+            .bookmark__title.d-block.mb-1
+              = link_to bookmark.url, target: '_blank', class: 'd-inline-block' do
+                = fa_icon 'external-link', class: 'mr-1'
+                - if bookmark.title?
+                  = link_to bookmark.title, bookmark.url, target: '_blank'
+                - else
+                  = link_to 'Visit', bookmark.url, target: '_blank'
+            .bookmark__tags.d-block.mb-1
+              - bookmark.tags.each do |tag|
+                span.chip = tag.name
+            small.bookmark__url.d-block.text-ellipsis.text-gray
+                = bookmark.url
+        .column.col-4.text-right
+          .btn-group
+            = link_to 'Show', bookmark, class: 'btn btn-outline'
+            = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-outline'
+            = link_to 'Destroy', bookmark, class: 'btn btn-outline', data: { confirm: 'Are you sure?' }, method: :delete
+  - else
+    .empty
+      .empty-icon
+        i.icon.icon-people
+      p.empty-title.h5 No bookmarks found
+      p.empty-subtitle Would you like to add one?
+      .empty-action
+        = link_to new_bookmark_path, class: 'btn btn-primary' do
+          | Add a bookmark

@@ -18,6 +18,7 @@ Metrics/BlockLength:
     - 'spec/helpers/**/*'
     - 'spec/models/**/*'
     - 'spec/policies/**/*'
+    - 'spec/requests/**/*'
     - 'spec/routing/**/*'
 
 Metrics/ModuleLength:
@@ -58,6 +59,7 @@ RSpec/ExampleLength:
   Exclude:
     - 'spec/controllers/**/*'
     - 'spec/helpers/**/*'
+    - 'spec/requests/**/*'
     - 'spec/views/**/*'
 
 RSpec/ExpectActual:

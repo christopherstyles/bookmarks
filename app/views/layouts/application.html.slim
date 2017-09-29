@@ -14,11 +14,13 @@ html lang="en"
               a.navbar-brand.mr-2 href="/bookmarks" Bookmarks
               a.btn.btn-link target="_blank" href="https://github.com/christopherstyles/bookmark-manager" GitHub
             section.navbar-section
-              .input-group.input-inline
-                input.form-input placeholder="search" type="text" /
-                button.btn.btn-primary.input-group-btn Search
+              = form_tag search_bookmarks_path, method: :get do
+                .input-group.input-inline
+                  input.form-input#search_input placeholder="search" type="text" name="q" /
+                  button.btn.btn-primary.input-group-btn Search
     .divider.mb-0
     = link_to new_bookmark_path, class: 'btn btn-primary btn-lg btn-block mb-4' do
       = fa_icon 'plus-circle', class: 'mr-1'
       | New Bookmark
+
     = yield

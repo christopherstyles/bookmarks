@@ -77,6 +77,14 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def search
+    @bookmarks = Bookmark.includes(:tags)
+                         .where(tags: {
+                                  name: params[:q].split(','),
+                                })
+    render :index
+  end
+
   private
 
   def set_bookmark

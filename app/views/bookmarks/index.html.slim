@@ -1,9 +1,3 @@
-.container.pb-2
-  .columns
-    .column.col-12.pb-3
-      = link_to new_bookmark_path, class: 'btn btn-primary btn-lg btn-block' do
-        = fa_icon 'plus-circle', class: 'mr-1'
-        | New Bookmark
 .container.pb-2.grid-sm
   - @bookmarks.each do |bookmark|
     .columns.pb-3

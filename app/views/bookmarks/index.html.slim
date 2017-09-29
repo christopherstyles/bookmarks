@@ -22,6 +22,6 @@
             = bookmark.url
       .column.col-4.text-right
         .btn-group
-          = link_to 'Show', bookmark, class: 'btn btn-link'
-          = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-link'
-          = link_to 'Destroy', bookmark, class: 'btn btn-link', data: { confirm: 'Are you sure?' }, method: :delete
+          = link_to 'Show', bookmark, class: 'btn btn-outline'
+          = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-outline'
+          = link_to 'Destroy', bookmark, class: 'btn btn-outline', data: { confirm: 'Are you sure?' }, method: :delete

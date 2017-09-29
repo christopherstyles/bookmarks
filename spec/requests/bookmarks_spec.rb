@@ -2,9 +2,45 @@ require 'rails_helper'
 
 RSpec.describe 'Bookmarks', type: :request do
   describe 'GET /bookmarks' do
-    it 'works! (now write some real specs)' do
+    it 'displays bookmarks' do
+      bookmark1 = create(:bookmark)
+      bookmark2 = create(:bookmark)
+
       get bookmarks_path
+
       expect(response).to have_http_status(200)
+
+      assert_select '.bookmark' do
+        assert_select '.bookmark__url', bookmark1.url
+        assert_select '.bookmark__url', bookmark2.url
+      end
+    end
+
+    it 'displays search results' do
+      tag1 = create(:tag, name: 'rubyonrails')
+      tag2 = create(:tag, name: 'composition')
+
+      bookmark1 = create(:bookmark)
+      bookmark2 = create(:bookmark)
+
+      create(
+        :tagging, taggable: bookmark1,
+                  tag: tag1
+      )
+
+      create(
+        :tagging, taggable: bookmark2,
+                  tag: tag2
+      )
+
+      get search_bookmarks_path(q: 'rubyonrails,composition')
+
+      expect(response).to have_http_status(200)
+
+      assert_select '.bookmark' do
+        assert_select '.bookmark__url', bookmark1.url
+        assert_select '.bookmark__url', bookmark2.url
+      end
     end
   end
 end

@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.order(created_at: :desc).all
+    @bookmarks = Bookmark.includes(:tags).order(created_at: :desc).all
   end
 
   # GET /bookmarks/1

@@ -1,0 +1,1 @@
+Selectize.defaults['selectOnTab'] = true;

@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.4'
 
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'redcarpet', '~> 3.4.0'
@@ -23,6 +24,12 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-microplugin', '0.0.3'
+  gem 'rails-assets-selectize', '0.12.4'
+  gem 'rails-assets-sifter', '0.5.2'
+end
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

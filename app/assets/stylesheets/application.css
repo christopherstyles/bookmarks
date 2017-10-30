@@ -13,6 +13,7 @@
  *= require font-awesome
  *= require simplemde.min
  *= require highlight.min
+ *= require selectize/selectize
  *= require ./app/simplemde
  *= require ./app/spectre
  *= require ./app/utilities

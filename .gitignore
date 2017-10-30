@@ -21,3 +21,6 @@
 # Ignore Heroku binstubs
 /bin/production
 /bin/staging
+
+# Ignore local environment variables
+.env*

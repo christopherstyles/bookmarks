@@ -17,5 +17,6 @@
  *= require ./app/simplemde
  *= require ./app/spectre
  *= require ./app/utilities
+ *= require_tree ./app/components
  *= require_self
  */

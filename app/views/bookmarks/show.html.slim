@@ -15,7 +15,7 @@
             span.chip = tag.name
 
       - if @bookmark.notes?
-        p
+        .bookmark__notes
           = sanitize(markdown(@bookmark.notes).html_safe)
 
     .column.col-12.pt-2

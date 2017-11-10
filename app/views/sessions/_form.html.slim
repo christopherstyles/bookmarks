@@ -1,0 +1,16 @@
+= form_for :session, url: session_path do |form|
+  .form-group
+    = form.label :email, class: 'form-label'
+    = form.text_field :email, type: 'email', class: 'form-input'
+
+  .form-group
+    = form.label :password, class: 'form-label'
+    = form.password_field :password, class: 'form-input'
+
+  .form-group
+    = form.submit class: 'btn btn-primary'
+
+  .other-links
+    - if Clearance.configuration.allow_sign_up?
+      = link_to t('.sign_up'), sign_up_path, class: 'btn mr-1'
+    = link_to t('.forgot_password'), new_password_path, class: 'btn'

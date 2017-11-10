@@ -6,6 +6,16 @@ module ApplicationHelper
     markdown.render(text)
   end
 
+  def flash_key_for_css(key)
+    case key
+    when 'notice' then 'toast toast-primary'
+    when 'success' then 'toast toast-success'
+    when 'error' then 'toast toast-error'
+    when 'alert' then 'toast toast-warning'
+    else 'toast'
+    end
+  end
+
   private
 
   def markdown_extensions

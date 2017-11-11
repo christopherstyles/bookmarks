@@ -8,7 +8,9 @@ if Rails.env.production?
   abort('The Rails environment is running in production mode!')
 end
 
+require 'clearance/rspec'
 require 'rspec/rails'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require 'support/factory_bot'

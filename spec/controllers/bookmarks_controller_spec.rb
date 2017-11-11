@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe BookmarksController, type: :controller do
   let(:bookmark) { create(:bookmark) }
+  let(:user) { create(:user) }
+
+  before do
+    sign_in_as(user)
+  end
 
   describe 'GET #index' do
     it 'returns a success response' do

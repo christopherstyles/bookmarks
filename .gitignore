@@ -24,3 +24,6 @@
 
 # Ignore local environment variables
 .env*
+
+# Ignore test coverage data
+coverage

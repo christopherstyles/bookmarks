@@ -12,7 +12,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           DATABASE_URL: postgres://root:circle_test@localhost:5432/bookmark_manager_test
-
+          CC_TEST_REPORTER_ID: <%= ENV['CC_TEST_REPORTER_ID'] %>
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -39,6 +39,12 @@ jobs:
           command: |
             bundle install --without development --jobs=4 --retry=3 --path vendor/bundle
 
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
       - save_cache:
           paths:
             - ./venv
@@ -52,10 +58,12 @@ jobs:
       - run:
           name: run tests
           command: |
+            ./cc-test-reporter before-build
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
                             --format progress
+            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
 
       # collect reports
       - store_test_results:

@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Bookmarks', type: :request do
+  let(:user) { create(:user) }
+
   describe 'GET /bookmarks' do
     it 'displays bookmarks' do
       bookmark1 = create(:bookmark)
       bookmark2 = create(:bookmark)
 
-      get bookmarks_path
+      get bookmarks_path(as: user)
 
       expect(response).to have_http_status(200)
 
@@ -33,7 +35,7 @@ RSpec.describe 'Bookmarks', type: :request do
                   tag: tag2
       )
 
-      get search_bookmarks_path(q: 'rubyonrails,composition')
+      get search_bookmarks_path(q: 'rubyonrails,composition', as: user)
 
       expect(response).to have_http_status(200)
 

@@ -1,13 +1,22 @@
 {
-  "name": "bookmark-manager",
+  "name": "Bookmark Manager",
+  "description": "Save and search your own bookmarks",
+  "keywords": ["bookmarks", "web-browsing", "bookmark-manager", "bookmark", "history"],
+  "repository": "https://github.com/christopherstyles/bookmark-manager",
   "scripts": {
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
   },
   "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1X",
+      "type": "web"
+    }
   },
   "addons": [
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {

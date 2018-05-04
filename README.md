@@ -1,5 +1,7 @@
 # Bookmark Manager
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Easily save and search your bookmarks.
 
 ## Installation

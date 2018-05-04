@@ -1,21 +1,19 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
-  "https://github.com/#{repo_name}.git"
-end
+ruby '2.5.0'
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.0'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# gem 'mini_racer', platforms: :ruby
 
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'clearance'
 gem 'font-awesome-rails'
-gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.11'
 gem 'redcarpet', '~> 3.4.0'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails', '~> 3.1.2'
@@ -34,11 +32,9 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
-  gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'faker', '~> 1.8.4'
   gem 'rspec-rails', '~> 3.6'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -58,7 +54,10 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'chromedriver-helper'
   gem 'rspec_junit_formatter'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers',
       git: 'https://github.com/thoughtbot/shoulda-matchers.git',
       branch: 'rails-5'

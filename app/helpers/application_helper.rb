@@ -1,6 +1,12 @@
+require 'rouge/plugins/redcarpet'
+
+class HTML < Redcarpet::Render::HTML
+  include Rouge::Plugins::Redcarpet
+end
+
 module ApplicationHelper
   def markdown(text)
-    renderer = Redcarpet::Render::HTML.new(markdown_options)
+    renderer = HTML.new(markdown_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
 
     markdown.render(text)

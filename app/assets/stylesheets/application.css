@@ -14,6 +14,7 @@
  *= require simplemde.min
  *= require highlight.min
  *= require selectize/selectize
+ *= require ./app/rouge
  *= require ./app/simplemde
  *= require ./app/spectre
  *= require ./app/utilities

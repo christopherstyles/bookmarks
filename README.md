@@ -1,5 +1,7 @@
 # Bookmark Manager
 
+[![CircleCI](https://circleci.com/gh/christopherstyles/bookmark-manager.svg?style=svg)](https://circleci.com/gh/christopherstyles/bookmark-manager)
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Easily save and search your bookmarks.
@@ -8,7 +10,7 @@ Easily save and search your bookmarks.
 
 Clone this repository.
 
-	% git clone https://github.com/christopherstyles/bookmark-manager.git
+    % git clone https://github.com/christopherstyles/bookmark-manager.git
 
 Setup dependencies and create the databases.
 

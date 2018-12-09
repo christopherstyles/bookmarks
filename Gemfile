@@ -5,9 +5,6 @@ ruby '2.5.3'
 
 gem 'rails', '~> 5.2.2'
 
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
 gem 'bootsnap', '>= 1.3.2', require: false
 gem 'clearance'
 gem 'font-awesome-rails'
@@ -16,14 +13,11 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.12.0'
 gem 'redcarpet', '~> 3.4.0'
 gem 'rouge'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 gem 'slim-rails', '~> 3.2.0'
 gem 'spectre_scss'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-microplugin', '0.0.3'

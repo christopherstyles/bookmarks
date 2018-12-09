@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
-  root to: 'bookmarks#index'
+  root to: 'bookmarks#new'
 end

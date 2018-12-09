@@ -3,7 +3,7 @@ FactoryBot.define do
     url { Faker::Internet.url }
 
     trait :invalid do
-      url nil
+      url { nil }
     end
   end
 end

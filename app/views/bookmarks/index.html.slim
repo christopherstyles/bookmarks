@@ -12,7 +12,7 @@
                 - else
                   = link_to 'Visit', bookmark.url, target: '_blank'
             .bookmark__tags.d-block.mb-1
-              - bookmark.tags.each do |tag|
+              - bookmark.tags.all.each do |tag|
                 span.chip = tag.name
             small.bookmark__url.d-block.text-ellipsis.text-gray
                 = bookmark.url

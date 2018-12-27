@@ -85,7 +85,7 @@ class BookmarksController < ApplicationController
   def search
     @pagy, @bookmarks = pagy(
       Bookmark.includes(:tags)
-              .where(tags: { name: params[:q].split(',') })
+              .where(tags: { name: params[:q].split(',').map(&:strip) })
               .order(created_at: :desc).all, items: 10
             )
 

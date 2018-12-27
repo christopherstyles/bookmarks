@@ -7,9 +7,9 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @pagy, @bookmarks = pagy(Bookmark.includes(:tags).order(created_at: :desc).all, items: 10)
-
-    # @bookmarks = Bookmark.includes(:tags).order(created_at: :desc).all
+    @pagy, @bookmarks = pagy(
+      Bookmark.includes(:tags).order(created_at: :desc).all, items: 10
+    )
   end
 
   # GET /bookmarks/1
@@ -83,10 +83,12 @@ class BookmarksController < ApplicationController
   end
 
   def search
-    @bookmarks = Bookmark.includes(:tags)
-                         .where(tags: {
-                                  name: params[:q].split(','),
-                                })
+    @pagy, @bookmarks = pagy(
+      Bookmark.includes(:tags)
+              .where(tags: { name: params[:q].split(',') })
+              .order(created_at: :desc).all, items: 10
+    )
+
     render :index
   end
 

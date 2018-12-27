@@ -7,6 +7,7 @@ RSpec.describe 'bookmarks/index', type: :view do
 
   before do
     assign(:bookmarks, [bookmark1, bookmark2])
+    assign(:pagy, Pagy.new(count: 100, page: 4))
   end
 
   it 'renders a list of bookmarks' do

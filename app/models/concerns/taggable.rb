@@ -6,7 +6,8 @@ module Taggable
   included do
     has_many :taggings, -> { includes(:tag).order(:created_at) },
              as: :taggable,
-             dependent: :destroy
+             dependent: :destroy,
+             inverse_of: :taggable
 
     has_many :tags, through: :taggings
 

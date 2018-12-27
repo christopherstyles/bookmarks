@@ -10,7 +10,7 @@ RSpec.describe 'Bookmarks', type: :request do
 
       get bookmarks_path(as: user)
 
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
 
       assert_select '.bookmark' do
         assert_select '.bookmark__url', bookmark1.url
@@ -37,7 +37,7 @@ RSpec.describe 'Bookmarks', type: :request do
 
       get search_bookmarks_path(q: 'rubyonrails,composition', as: user)
 
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
 
       assert_select '.bookmark' do
         assert_select '.bookmark__url', bookmark1.url

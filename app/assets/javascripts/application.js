@@ -18,4 +18,5 @@
 //= require ./plugins/selectize_defaults
 //= require simplemde.min
 //= require highlight.min
+//= require pagy
 //= require_tree .

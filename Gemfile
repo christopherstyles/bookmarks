@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.3.2', require: false
 gem 'clearance'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'pagy', '~> 1.2.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.12.0'
 gem 'redcarpet', '~> 3.4.0'

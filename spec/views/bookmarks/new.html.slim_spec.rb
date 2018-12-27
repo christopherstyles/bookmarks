@@ -4,7 +4,7 @@ RSpec.describe 'bookmarks/new', type: :view do
   before do
     assign(:bookmark, Bookmark.new(
                         url: 'MyText',
-    ))
+                      ))
   end
 
   it 'renders new bookmark form' do

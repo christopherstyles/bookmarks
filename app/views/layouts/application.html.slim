@@ -18,7 +18,7 @@ html lang="en"
               - if signed_in?
                 = form_tag search_bookmarks_path, method: :get do
                   .input-group.input-inline
-                    input.form-input#search_input placeholder="search" type="text" name="q" autocorrect="off" autocapitalize="none"
+                    input.form-input#search_input placeholder="search" type="text" name="q" autocorrect="off" autocapitalize="none" value=params[:q]
                     button.btn.btn-primary.input-group-btn Search
                 = button_to t('.sign_out'), sign_out_path, method: :delete, class: 'btn btn-link'
               - else

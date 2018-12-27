@@ -87,7 +87,7 @@ class BookmarksController < ApplicationController
       Bookmark.includes(:tags)
               .where(tags: { name: params[:q].split(',') })
               .order(created_at: :desc).all, items: 10
-    )
+            )
 
     render :index
   end

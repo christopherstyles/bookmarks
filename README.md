@@ -1,6 +1,6 @@
 # Bookmark Manager
 
-[![CircleCI](https://circleci.com/gh/christopherstyles/bookmark-manager.svg?style=svg)](https://circleci.com/gh/christopherstyles/bookmark-manager)
+[![CircleCI](https://circleci.com/gh/christopherstyles/bookmark-manager/tree/master.svg?style=svg)](https://circleci.com/gh/christopherstyles/bookmark-manager/tree/master)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dcf76420a522d802f4dd/test_coverage)](https://codeclimate.com/github/christopherstyles/bookmark-manager/test_coverage)
 

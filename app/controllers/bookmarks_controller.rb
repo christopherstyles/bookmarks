@@ -1,11 +1,15 @@
 class BookmarksController < ApplicationController
+  include Pagy::Backend
+
   before_action :require_login
   before_action :set_bookmark, only: %i(show edit update destroy)
 
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.includes(:tags).order(created_at: :desc).all
+    @pagy, @bookmarks = pagy(Bookmark.includes(:tags).order(created_at: :desc).all, items: 10)
+
+    # @bookmarks = Bookmark.includes(:tags).order(created_at: :desc).all
   end
 
   # GET /bookmarks/1

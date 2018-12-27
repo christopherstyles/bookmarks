@@ -5,6 +5,8 @@ class HTML < Redcarpet::Render::HTML
 end
 
 module ApplicationHelper
+  include Pagy::Frontend
+
   def markdown(text)
     renderer = HTML.new(markdown_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)

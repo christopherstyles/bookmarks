@@ -34,3 +34,5 @@
 
 # Ignore test coverage data
 coverage
+
+.vscode

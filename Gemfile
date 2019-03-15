@@ -6,7 +6,7 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.2.1'
 
 gem 'bootsnap', '>= 1.3.2', require: false
-gem 'clearance'
+gem 'clearance', '1.16.1'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'pagy', '~> 2.1.2'

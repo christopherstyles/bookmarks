@@ -1,5 +1,9 @@
+# encoding: utf-8
+# frozen_string_literal: true
+
 # Pagy initializer file
-# Customize only what you really need but notice that Pagy works also without any of the following lines.
+# Customize only what you really need and notice that Pagy works also without any of the following lines.
+# Should you just cherry pick part of this file, please maintain the require-order of the extras
 
 
 # Extras
@@ -17,11 +21,11 @@
 # require 'pagy/extras/countless'
 # Pagy::VARS[:cycle] = false    # default
 
-# Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects efficiently, avoiding expensive object-wrapping and without overriding.
+# Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects
 # See https://ddnexus.github.io/pagy/extras/elasticsearch_rails
 # require 'pagy/extras/elasticsearch_rails'
 
-# Searchkick extra: Paginate `Searchkick::Results` objects efficiently, avoiding expensive object-wrapping and without overriding.
+# Searchkick extra: Paginate `Searchkick::Results` objects
 # See https://ddnexus.github.io/pagy/extras/searchkick
 # require 'pagy/extras/searchkick'
 
@@ -56,10 +60,15 @@ require 'pagy/extras/plain'
 
 # Breakpoints var used by the responsive nav helpers
 # See https://ddnexus.github.io/pagy/extras/plain#breakpoints
-# Pagy::VARS[:breakpoints] = { 0 => [1,2,2,1], 350 => [2,3,3,2], 550 => [3,4,4,3] }    # example of width/size pairs
-
+# width/size pairs: example for bootstrap4 sm-md-lg internal container widths
+# Pagy::VARS[:breakpoints] = { 0 => [1,0,0,1], 540 => [2,3,3,2], 720 => [3,4,4,3] }
 
 # Feature Extras
+
+# Headers extra: http response headers (and other helpers) useful for API pagination
+# See http://ddnexus.github.io/pagy/extras/headers
+# require 'pagy/extras/headers'
+# Pagy::VARS[:headers] = { page: 'Current-Page', items: 'Page-Items', count: 'Total-Count', pages: 'Total-Pages' }     # default
 
 # Support extra: Extra support for features like: incremental, infinite, auto-scroll pagination
 # See https://ddnexus.github.io/pagy/extras/support
@@ -73,7 +82,8 @@ require 'pagy/extras/plain'
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
-# Pagy::VARS[:overflow] = :last_page    # default  (other options: :empty_page and :exception)
+# require 'pagy/extras/overflow'
+# Pagy::VARS[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
 
 # Trim extra: Remove the page=1 param from links
 # See https://ddnexus.github.io/pagy/extras/trim
@@ -111,15 +121,35 @@ require 'pagy/extras/plain'
 
 # I18n
 
-# I18n faster internal pagy implementation (does not use the I18n gem)
-# Use only for single language apps that don't need dynamic translation between multiple languages
+# Pagy internal I18n: ~18x faster using ~10x less memory than the i18n gem
 # See https://ddnexus.github.io/pagy/api/frontend#i18n
-# Notice: Do not use any of the following lines if you use the i18n extra below
-# Pagy::Frontend::I18N.load(file: Pagy.root.join('locale', 'es.yml'), language:'es') # load 'es' pagy language file
-# Pagy::Frontend::I18N.load(file:'path/to/dictionary.yml', language:'en')            # load a custom 'en' file
-# Pagy::Frontend::I18N[:plural] = -> (count) {(['zero', 'one'][count] || 'other')}   # default
+# Notice: No need to configure anything in this section if your app uses only "en"
+# or if you use the i18n extra below
+#
+# Examples:
+# load the "de" built-in locale:
+# Pagy::I18n.load(locale: 'de')
+#
+# load the "de" locale defined in the custom file at :filepath:
+# Pagy::I18n.load(locale: 'de', filepath: 'path/to/pagy-de.yml')
+#
+# load the "de", "en" and "es" built-in locales:
+# (the first passed :locale will be used also as the default_locale)
+# Pagy::I18n.load({locale: 'de'},
+#                 {locale: 'en'},
+#                 {locale: 'es'})
+#
+# load the "en" built-in locale, a custom "es" locale,
+# and a totally custom locale complete with a custom :pluralize proc:
+# (the first passed :locale will be used also as the default_locale)
+# Pagy::I18n.load({locale: 'en'},
+#                 {locale: 'es', filepath: 'path/to/pagy-es.yml'},
+#                 {locale: 'xyz',  # not built-in
+#                  filepath: 'path/to/pagy-xyz.yml',
+#                  pluralize: lambda{|count| ... } )
 
-# I18n extra: Use the `I18n` gem instead of the pagy implementation
-# (slower but allows dynamic translation between multiple languages)
+
+# I18n extra: uses the standard i18n gem which is ~18x slower using ~10x more memory
+# than the default pagy internal i18n (see above)
 # See https://ddnexus.github.io/pagy/extras/i18n
 # require 'pagy/extras/i18n'

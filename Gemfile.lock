@@ -165,7 +165,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pagy (1.2.0)
+    pagy (2.1.2)
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
@@ -340,7 +340,7 @@ DEPENDENCIES
   guard-rubocop
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  pagy (~> 1.2.0)
+  pagy (~> 2.1.2)
   pg (~> 0.18)
   pry-awesome_print
   pry-rails

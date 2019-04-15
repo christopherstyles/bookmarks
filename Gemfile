@@ -19,6 +19,7 @@ gem 'slim-rails', '~> 3.2.0'
 gem 'spectre_scss'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier'
+gem 'webpacker', '~> 4.x'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-microplugin', '0.0.3'

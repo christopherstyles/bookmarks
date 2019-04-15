@@ -42,7 +42,8 @@ group :development do
   gem 'pry-awesome_print'
   gem 'pry-rails'
   gem 'rack-livereload'
-  gem 'rubocop', '~> 0.61.1', require: false
+  gem 'rubocop', '~> 0.67.2', require: false
+  gem 'rubocop-performance'
   gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   Exclude:
@@ -7,6 +9,7 @@ AllCops:
     - 'bin/*'
     - 'config/**/*'
     - 'db/**/*'
+    - 'node_modules/**/*'
 
 Documentation:
   Enabled: false

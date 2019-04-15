@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: circleci/ruby:2.6.0-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
@@ -20,7 +20,7 @@ jobs:
         environment:
           POSTGRES_USER: bookmark-manager
           POSTGRES_DB: bookmark-manager-test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: ''
 
     working_directory: ~/bookmark-manager
 
@@ -30,9 +30,9 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - bookmark-manager-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - bookmark-manager-
+            - bookmark-manager-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - bookmark-manager-
 
       - run:
           name: install dependencies
@@ -92,4 +92,3 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-

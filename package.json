@@ -2,8 +2,8 @@
   "name": "bookmark-manager",
   "private": true,
   "engines": {
-    "node": ">=6.0.0",
-    "yarn": ">=0.25.2"
+    "node": ">= 6.0.0",
+    "yarn": ">= 0.25.2"
   },
   "dependencies": {
     "@rails/webpacker": "4.0.2",

@@ -1,8 +1,6 @@
 class UnfurlsController < ApplicationController
   before_action :require_login
 
-  # GET /unfurls/1
-  # GET /unfurls/1.json
   def index
     page = MetaInspector.new(
       url_from_params,

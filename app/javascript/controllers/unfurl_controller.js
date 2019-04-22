@@ -41,7 +41,7 @@ export default class extends Controller {
         const keywords = data.meta_tags.name.keywords[0].split(',');
 
         keywords.map((keyword) => {
-          const name = trim(keyword);
+          const name = trim(keyword).toLowerCase();
           selectize.addOption({ name });
           selectize.addItem(name);
           selectize.refreshItems();

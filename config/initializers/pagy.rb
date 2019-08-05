@@ -34,7 +34,7 @@
 
 # Bootstrap extra: Add nav, responsive and compact helpers and templates for Bootstrap pagination
 # See https://ddnexus.github.io/pagy/extras/bootstrap
-# require 'pagy/extras/bootstrap'
+require 'pagy/extras/bootstrap'
 
 # Bulma extra: Add nav, responsive and compact helpers and templates for Bulma pagination
 # See https://ddnexus.github.io/pagy/extras/bulma
@@ -52,7 +52,7 @@
 # Notice: the other frontend extras add their own framework-styled versions,
 # so require this extra only if you need the plain unstyled version
 # See https://ddnexus.github.io/pagy/extras/plain
-require 'pagy/extras/plain'
+# require 'pagy/extras/plain'
 
 # Semantic extra: Nav, responsive and compact helpers for Semantic UI pagination
 # See https://ddnexus.github.io/pagy/extras/semantic

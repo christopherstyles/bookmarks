@@ -1,13 +1,13 @@
-.container.pb-2.grid-sm
-  .columns.pb-3
-    .column.col-8.centered
+.container
+  .row
+    .col.col-8.mx-auto
       #clearance.password-reset
         h4 = t('.title')
-        p = t('.description')
+        p.lead = t('.description')
 
         = form_for :password, url: passwords_path do |form|
           .form-group
-            = form.label :email, class: 'form-label'
-            = form.text_field :email, type: 'email', class: 'form-input'
+            = form.label :email
+            = form.text_field :email, type: 'email', class: 'form-control'
           .form-group
-            = form.submit class: 'btn btn-primary'
+            = form.submit class: 'btn btn-outline-primary'

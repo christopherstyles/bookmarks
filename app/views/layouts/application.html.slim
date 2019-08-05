@@ -7,34 +7,8 @@ html lang="en"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    .container
-      .columns
-        .column
-          header.navbar.pt-2.pl-2
-            section.navbar-section
-              a.navbar-brand.mr-2 href="/bookmarks" Bookmarks
-              a.btn.btn-link target="_blank" href="https://github.com/christopherstyles/bookmarks" GitHub
-            section.navbar-section
-              - if signed_in?
-                = form_tag search_bookmarks_path, method: :get do
-                  .input-group.input-inline
-                    input.form-input#search_input placeholder="search" type="text" name="q" autocorrect="off" autocapitalize="none" value=params[:q]
-                    button.btn.btn-primary.input-group-btn Search
-                = button_to t('.sign_out'), sign_out_path, method: :delete, class: 'btn btn-link'
-              - else
-                = link_to t('.sign_in'), sign_in_path, class: 'btn btn-link'
-    .divider.mb-0
-    = link_to new_bookmark_path, class: 'btn btn-primary btn-lg btn-block mb-4' do
-      = fa_icon 'plus-circle', class: 'mr-1'
-      | New Bookmark
-
-    - if flash.any?
-      .container.pb-2.grid-sm
-        .columns.pb-3
-          .column
-            #flash
-              - flash.each do |key, value|
-                div class="flash #{flash_key_for_css(key)}" = value
-
+    link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet"
+  body.pb-5
+    = render 'navbar'
+    = render 'messages', flash: flash
     = yield

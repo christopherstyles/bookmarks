@@ -1,28 +1,30 @@
-= form_for @bookmark do |f|
+= form_for @bookmark, data: { controller: 'unfurl' } do |f|
   - if @bookmark.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
-      ul
+    .alert.alert-danger
+      h5.alert-heading = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
+      hr
+      ul.mb-0
         - @bookmark.errors.full_messages.each do |message|
           li = message
-
-  div data-controller="unfurl"
-    .form-group
-      = f.label :title, class: 'form-label'
-      = f.text_field :title, class: 'form-input', autofocus: true, data: { target: 'unfurl.title' }
-    .form-group
-      = f.label :url, class: 'form-label'
-      = f.text_area :url, class: 'form-input', data: { target: 'unfurl.url' }
-      a href='#' data-action="unfurl#fetch"
-        small Unfurl?
-    .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
-      = f.label :tag_list, class: 'form-label'
-      = f.text_field :tag_list, class: '', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
-    .form-group
-      = f.label :notes, class: 'form-label'
-      = f.text_area :notes, class: 'form-input', data: { target: 'unfurl.notes' }
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', autofocus: true, data: { target: 'unfurl.title' }
+  .form-group
+    = f.label :url
+    = f.text_area :url, class: 'form-control', data: { target: 'unfurl.url' }
+    small.form-text.text-muted
+      a href='#' data-action="unfurl#fetch" Unfurl?
+  .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
+    = f.label :tag_list
+    = f.text_field :tag_list, class: 'form-control', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
+  .form-group
+    = f.label :notes
+    = f.text_area :notes, class: 'form-control', data: { target: 'unfurl.notes' }
   .actions
-    = f.submit class: 'btn btn-primary'
+    .btn-group
+      = f.submit class: 'btn btn-outline-primary'
+      = link_to 'Show', @bookmark, class: 'btn btn-outline-secondary' if @bookmark.persisted?
+      = link_to 'Back', bookmarks_path, class: 'btn btn-outline-secondary'
 
 javascript:
   var editor = new SimpleMDE({

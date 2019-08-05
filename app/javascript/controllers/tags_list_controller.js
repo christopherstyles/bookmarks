@@ -20,22 +20,7 @@ export default class extends Controller {
       openOnFocus: false,
       hideSelected: true,
       closeAfterSelect: true,
-      load: (query, callback) => {
-        if (!query.length) return callback();
-        Rails.ajax({
-          url: this.data.get('autocomplete-url'),
-          type: 'GET',
-          data: qs.stringify({
-            q: query,
-          }),
-          error: () => {
-            callback();
-          },
-          success: (res) => {
-            callback(res.tags);
-          },
-        });
-      },
+      options: JSON.parse(this.data.get('options')),
     });
   }
 }

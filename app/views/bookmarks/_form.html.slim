@@ -15,7 +15,7 @@
       = f.text_area :url, class: 'form-input', data: { target: 'unfurl.url' }
       a href='#' data-action="unfurl#fetch"
         small Unfurl?
-    .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path
+    .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
       = f.label :tag_list, class: 'form-label'
       = f.text_field :tag_list, class: '', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
     .form-group

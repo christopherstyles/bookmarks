@@ -1,5 +1,5 @@
 {
-  "name": "bookmark-manager",
+  "name": "bookmarks",
   "private": true,
   "engines": {
     "node": ">= 6.0.0",

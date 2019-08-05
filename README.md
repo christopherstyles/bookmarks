@@ -1,8 +1,8 @@
-# Bookmark Manager
+# Bookmarks
 
-[![CircleCI](https://circleci.com/gh/christopherstyles/bookmark-manager/tree/master.svg?style=svg)](https://circleci.com/gh/christopherstyles/bookmark-manager/tree/master)
+[![CircleCI](https://circleci.com/gh/christopherstyles/bookmarks/tree/master.svg?style=svg)](https://circleci.com/gh/christopherstyles/bookmarks/tree/master)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/dcf76420a522d802f4dd/test_coverage)](https://codeclimate.com/github/christopherstyles/bookmark-manager/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/dcf76420a522d802f4dd/test_coverage)](https://codeclimate.com/github/christopherstyles/bookmarks/test_coverage)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -12,7 +12,7 @@ Easily save and search your bookmarks.
 
 Clone this repository.
 
-    % git clone https://github.com/christopherstyles/bookmark-manager.git
+    % git clone https://github.com/christopherstyles/bookmarks.git
 
 Setup dependencies and create the databases.
 

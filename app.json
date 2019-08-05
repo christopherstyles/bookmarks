@@ -1,14 +1,8 @@
 {
-  "name": "Bookmark Manager",
+  "name": "Bookmarks",
   "description": "Save and search your own bookmarks",
-  "keywords": [
-    "bookmarks",
-    "web-browsing",
-    "bookmark-manager",
-    "bookmark",
-    "history"
-  ],
-  "repository": "https://github.com/christopherstyles/bookmark-manager",
+  "keywords": ["bookmarks", "web-browsing", "bookmarks", "bookmark", "history"],
+  "repository": "https://github.com/christopherstyles/bookmarks",
   "scripts": {
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },

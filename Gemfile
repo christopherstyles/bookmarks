@@ -6,6 +6,7 @@ ruby '2.6.0'
 gem 'rails', '~> 5.2.3'
 
 gem 'bootsnap', '>= 1.3.2', require: false
+gem 'bootstrap', '~> 4.3.1'
 gem 'clearance', '1.16.1'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
@@ -16,17 +17,11 @@ gem 'metainspector'
 gem 'redcarpet', '~> 3.4.0'
 gem 'rouge'
 gem 'sassc-rails'
+gem 'selectize-rails'
 gem 'slim-rails', '~> 3.2.0'
-gem 'spectre_scss'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier'
 gem 'webpacker', '~> 4.x'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-microplugin', '0.0.3'
-  gem 'rails-assets-selectize', '0.12.6'
-  gem 'rails-assets-sifter', '0.5.3'
-end
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)

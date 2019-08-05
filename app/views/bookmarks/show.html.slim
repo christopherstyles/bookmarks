@@ -1,22 +1,17 @@
-.container.grid-xs.pb-2
-  .columns
-    .column.col-12.pt-2
+.container
+  .row
+    .col.col-12.col-lg-8.col-xl-12.mx-auto.pt-2
       - if @bookmark.title?
-        h4.mb-2 = @bookmark.title
-
-      p.mb-2
+        h4 = @bookmark.title
+      p
         = link_to @bookmark.url, @bookmark.url
-
       - if @bookmark.tags.any?
-        .mb-2
+        p.bookmark_tags
           - @bookmark.tags.each do |tag|
-            span.chip = tag.name
-
+            span.tag.mr-1.mb-1 = tag.name
       - if @bookmark.notes?
         .bookmark__notes
           = markdown(@bookmark.notes).html_safe
-
-    .column.col-12.pt-2
       .btn-group.mr-2
-        = link_to 'Edit', edit_bookmark_path(@bookmark), class: 'btn btn-primary'
-        = link_to 'Back', bookmarks_path, class: 'btn'
+        = link_to 'Edit', edit_bookmark_path(@bookmark), class: 'btn btn-outline-primary'
+        = link_to 'Back', bookmarks_path, class: 'btn btn-outline-secondary'

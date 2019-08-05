@@ -1,0 +1,7 @@
+- unless flash.empty?
+  .container.pt-3
+    .row
+      .col
+        - flash.each do |key, value|
+          .alert class="alert-#{key_for_bootstrap(key)}"
+            = value

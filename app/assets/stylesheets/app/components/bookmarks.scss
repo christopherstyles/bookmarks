@@ -1,9 +1,0 @@
-@import '../mixins';
-
-.bookmark {
-  &__notes {
-    img {
-      @include adaptive-image;
-    }
-  }
-}

@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   def search
     @pagy, @tags = pagy(
       Tag.where('name ILIKE ?', "#{params[:q]}%")
-         .order(name: :asc).all
+         .order(name: :asc).all,
     )
 
     render json: { tags: @tags }.to_json

@@ -1,33 +1,29 @@
-.container.pb-2.grid-sm
+.container
   - if @bookmarks.any?
-    - @bookmarks.each do |bookmark|
-      .columns.pb-3
-        .column.col-8
-          .bookmark
-            .bookmark__title.d-block.mb-1
-              = link_to bookmark.url, target: '_blank', class: 'd-inline-block' do
-                = fa_icon 'external-link', class: 'mr-1'
-                - if bookmark.title?
-                  = link_to bookmark.title, bookmark.url, target: '_blank'
-                - else
-                  = link_to 'Visit', bookmark.url, target: '_blank'
-            .bookmark__tags.d-block.mb-1
-              - bookmark.tags.all.each do |tag|
-                span.chip = tag.name
-            small.bookmark__url.d-block.text-ellipsis.text-gray
-                = bookmark.url
-        .column.col-4.text-right
-          .btn-group
-            = link_to 'Show', bookmark, class: 'btn btn-outline'
-            = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-outline'
-            = link_to 'Destroy', bookmark, class: 'btn btn-outline', data: { confirm: 'Are you sure?' }, method: :delete
+    .row
+      - @bookmarks.each do |bookmark|
+        .col-12.col-xl-6.mx-auto
+          .card.border-0.mb-3.bookmark
+            .card-body
+              .bookmark__title
+                = link_to bookmark.title, bookmark
+              small.d-block.card-title.text-truncate
+                = link_to bookmark.url, class: 'bookmark__url', target: '_blank' do
+                  = bookmark.url
+              p.card-text
+                - bookmark.tags.all.each do |tag|
+                  span.tag.mr-1.mb-1 = tag.name
+              .btn-group role="group" aria-label="Bookmark actions"
+                = link_to 'Show', bookmark, class: 'btn btn-sm btn-outline-secondary'
+                = link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-sm btn-outline-secondary'
+                = link_to 'Destroy', bookmark, class: 'btn btn-sm btn-outline-secondary', data: { confirm: 'Are you sure?' }, method: :delete
+    .row.justify-content-md-center
+      .col-auto.pt-5
+        == pagy_bootstrap_nav(@pagy)
   - else
-    .empty
-      .empty-icon
-        i.icon.icon-people
-      p.empty-title.h5 No bookmarks found
-      p.empty-subtitle Would you like to add one?
-      .empty-action
+    .row.justify-content-md-center
+      .col-12.col-md-6.mx-auto.text-center
+        h5 No bookmarks found
+        p Would you like to add one?
         = link_to new_bookmark_path, class: 'btn btn-primary' do
           | Add a bookmark
-  == pagy_plain_responsive_nav(@pagy)

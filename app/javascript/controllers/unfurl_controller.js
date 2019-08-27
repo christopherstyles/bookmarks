@@ -14,8 +14,6 @@ export default class extends Controller {
     const editor = $(this.notesTarget).data('editor');
 
     $.getJSON(`/unfurls?url=${url}`, (data) => {
-      console.log('Data received', data); // Data returned
-
       if (has(data, 'best_title')) {
         this.titleTarget.value = data.best_title;
       }
@@ -35,8 +33,6 @@ export default class extends Controller {
       }
 
       if (has(data, 'meta_tags.name.keywords[0]')) {
-        console.log('keywords', data.meta_tags.name.keywords[0]);
-
         const selectize = $(this.tagsListTarget)[0].selectize;
         const keywords = data.meta_tags.name.keywords[0].split(',');
 

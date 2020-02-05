@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus';
-import qs from 'qs';
 
 export default class extends Controller {
   static targets = ['input'];

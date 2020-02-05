@@ -35,6 +35,7 @@ group :development do
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
+  gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-awesome_print'
   gem 'pry-rails'

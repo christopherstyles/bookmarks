@@ -6,9 +6,19 @@
     "yarn": ">= 0.25.2"
   },
   "dependencies": {
+    "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^4.2.2",
+    "bootstrap": "^4.4.1",
+    "core-js": "^3.6.4",
+    "jquery": "^3.4.1",
     "lodash": "^4.17.15",
-    "stimulus": "1.1.1"
+    "popper.js": "^1.16.1",
+    "rails-erb-loader": "^5.5.2",
+    "regenerator-runtime": "^0.13.3",
+    "selectize": "^0.12.6",
+    "simplemde": "^1.11.2",
+    "stimulus": "1.1.1",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"

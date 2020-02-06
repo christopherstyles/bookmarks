@@ -10,13 +10,4 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
-//= require selectize
-//= require ./plugins/selectize_defaults
-//= require simplemde.min
-//= require highlight.min
-//= require pagy
-//= require_tree .
+//= require_self

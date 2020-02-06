@@ -1,4 +1,6 @@
 import { Controller } from 'stimulus';
+import $ from 'jquery';
+import 'selectize/dist/js/standalone/selectize';
 
 export default class extends Controller {
   static targets = ['input'];
@@ -16,6 +18,7 @@ export default class extends Controller {
       valueField: 'name',
       labelField: 'name',
       searchField: 'name',
+      selectOnTab: true,
       openOnFocus: false,
       hideSelected: true,
       closeAfterSelect: true,

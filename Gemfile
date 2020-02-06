@@ -50,9 +50,7 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers',
-      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
-      branch: 'rails-5'
+  gem 'shoulda-matchers', '~> 4.2.0'
   gem 'simplecov', require: false
   gem 'webdrivers'
 end

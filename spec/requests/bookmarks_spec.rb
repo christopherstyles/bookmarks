@@ -29,7 +29,15 @@ RSpec.describe 'Bookmarks', type: :request do
         :tagging, taggable: bookmark1,
                   tag: tag1
       )
+      create(
+        :tagging, taggable: bookmark1,
+                  tag: tag2
+      )
 
+      create(
+        :tagging, taggable: bookmark2,
+                  tag: tag1
+      )
       create(
         :tagging, taggable: bookmark2,
                   tag: tag2

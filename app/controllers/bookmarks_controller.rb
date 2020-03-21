@@ -4,30 +4,22 @@ class BookmarksController < ApplicationController
   before_action :require_login
   before_action :set_bookmark, only: %i(show edit update destroy)
 
-  # GET /bookmarks
-  # GET /bookmarks.json
   def index
     @pagy, @bookmarks = pagy(
       Bookmark.includes(:tags).order(created_at: :desc).all, items: 10
     )
   end
 
-  # GET /bookmarks/1
-  # GET /bookmarks/1.json
   def show
   end
 
-  # GET /bookmarks/new
   def new
     @bookmark = Bookmark.new
   end
 
-  # GET /bookmarks/1/edit
   def edit
   end
 
-  # POST /bookmarks
-  # POST /bookmarks.json
   # rubocop:disable Metrics/MethodLength
   def create
     @bookmark = Bookmark.new(bookmark_params)
@@ -49,8 +41,6 @@ class BookmarksController < ApplicationController
   end
   # rubocop:enable Metrics/MethodLength
 
-  # PATCH/PUT /bookmarks/1
-  # PATCH/PUT /bookmarks/1.json
   # rubocop:disable Metrics/MethodLength
   def update
     respond_to do |format|
@@ -67,8 +57,6 @@ class BookmarksController < ApplicationController
   end
   # rubocop:enable Metrics/MethodLength
 
-  # DELETE /bookmarks/1
-  # DELETE /bookmarks/1.json
   def destroy
     @bookmark.destroy
     respond_to do |format|
@@ -84,9 +72,10 @@ class BookmarksController < ApplicationController
 
   def search
     @pagy, @bookmarks = pagy(
-      Bookmark.includes(:tags)
-              .where(tags: { name: params[:q].split(',').map(&:strip) })
-              .order(created_at: :desc).all, items: 10
+      Bookmark.includes(:tags, :taggings)
+              .tagged_with(tags_from_params)
+              .order(created_at: :desc),
+      items: 10
     )
 
     render :index
@@ -100,5 +89,9 @@ class BookmarksController < ApplicationController
 
   def bookmark_params
     params.require(:bookmark).permit(:notes, :tag_list, :title, :url)
+  end
+
+  def tags_from_params
+    params[:q].split(',').map(&:strip)
   end
 end

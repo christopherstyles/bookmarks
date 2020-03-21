@@ -25,4 +25,20 @@ module Taggable
       end
     end
   end
+
+  class_methods do
+    def tagged_with(values)
+      self.where("id IN (#{taggable_ids_query(values).to_sql})")
+    end
+
+    private
+
+    def taggable_ids_query(values)
+      Tagging.joins(:tag).select(:taggable_id)
+        .where(taggable_type: self.name)
+        .where(tags: { name: values })
+        .having("COUNT(*) = #{values.length}")
+        .group(:taggable_id)
+    end
+  end
 end

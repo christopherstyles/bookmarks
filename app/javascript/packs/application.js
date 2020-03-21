@@ -21,5 +21,4 @@ require('turbolinks').start();
 import 'bootstrap';
 import 'controllers';
 
-import '../src/stylesheets/application.scss';
 import '../src/javascripts/pagy.js.erb';

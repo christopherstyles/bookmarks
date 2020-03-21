@@ -11,7 +11,7 @@
                 = link_to bookmark.url, class: 'bookmark__url', target: '_blank' do
                   = bookmark.url
               p.card-text
-                - bookmark.tags.all.each do |tag|
+                - bookmark.tags.each do |tag|
                   span.tag.mr-1.mb-1 = tag.name
               .btn-group role="group" aria-label="Bookmark actions"
                 = link_to 'Show', bookmark, class: 'btn btn-sm btn-outline-secondary'

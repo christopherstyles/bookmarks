@@ -1,24 +1,16 @@
-.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
+.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand.mr-2 href="/bookmarks" Bookmarks
   button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-    span = fa_icon 'bars'
+    span = icon 'fas', 'bars'
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       - if signed_in?
         li.nav-item
-          = link_to new_bookmark_path, class: 'nav-link' do
-            = fa_icon 'plus-circle', class: 'mr-1'
-            | New Bookmark
-
-    ul.navbar-nav
-      li.nav-item.pr-1
-        a.nav-link target="_blank" href="https://github.com/christopherstyles/bookmarks"
-          = fa_icon "github", text: "GitHub"
-
+          = link_to 'New Bookmark', new_bookmark_path, class: 'nav-link'
     - if signed_in?
       = form_tag search_bookmarks_path, method: :get, class: 'form-inline my-2 my-lg-0' do
         input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" name="q" autocorrect="off" autocapitalize="none" value=params[:q]
-        button.btn.btn-light.my-2.my-sm-0 type="submit" Search
+        button.btn.btn-outline-secondary.my-2.my-sm-0 type="submit" Search
       ul.navbar-nav
         li.nav-item
           = link_to t('.sign_out'), sign_out_path, method: :delete, class: 'nav-link'

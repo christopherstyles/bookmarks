@@ -6,8 +6,9 @@ ruby '2.6.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'clearance', '1.16.1'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.12.0', '>= 5.12.0'
 gem 'metainspector'
 gem 'pagy', '~> 2.1.2'
 gem 'pg', '~> 0.18'

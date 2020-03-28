@@ -42,6 +42,7 @@ group :development do
   gem 'rubocop-performance'
   gem 'rubocop-rspec', require: false
   gem 'rubocop', '~> 0.67.2', require: false
+  gem 'simplemde-rails'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring'
   gem 'web-console', '>= 3.7.0'

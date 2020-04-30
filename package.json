@@ -10,7 +10,7 @@
     "@rails/webpacker": "^4.2.2",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
     "rails-erb-loader": "^5.5.2",

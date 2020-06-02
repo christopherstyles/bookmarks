@@ -19,7 +19,7 @@ gem 'sass-rails', '>= 6'
 gem 'slim-rails', '~> 3.2.0'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier'
-gem 'webpacker', '~> 5.0.1'
+gem 'webpacker', '~> 5.1.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)

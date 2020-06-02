@@ -7,10 +7,17 @@ end
 module ApplicationHelper
   include Pagy::Frontend
 
-  def markdown(text)
-    renderer = HTML.new(markdown_options)
-    markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
-    markdown.render(text)
+  def feather_icon(name, options = {})
+    content_tag(
+      :i,
+      nil,
+      options.deep_merge(
+        data: {
+          feather: name,
+          controller: 'feather',
+        },
+      ),
+    )
   end
 
   def key_for_bootstrap(key = :info)
@@ -21,6 +28,12 @@ module ApplicationHelper
     when :error then :danger
     else :info
     end
+  end
+
+  def markdown(text)
+    renderer = HTML.new(markdown_options)
+    markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
+    markdown.render(text)
   end
 
   private

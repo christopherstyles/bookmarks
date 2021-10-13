@@ -25,12 +25,11 @@ group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'factory_bot_rails'
   gem 'faker', '~> 1.9.1'
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails'
 end
 
 group :development do
   gem 'bullet', '~> 6.1'
-  gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
   gem 'guard'
@@ -38,7 +37,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-awesome_print'
   gem 'pry-rails'
-  gem 'rack-livereload'
   gem 'rubocop-performance'
   gem 'rubocop-rspec', require: false
   gem 'rubocop', '~> 0.67.2', require: false

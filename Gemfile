@@ -36,7 +36,7 @@ group :development do
   gem "guard"
   gem "guard-rspec", require: false
   gem "letter_opener"
-  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "listen", "~> 3.2", ">= 3.2.1"
   gem "pry-awesome_print"
   gem "pry-rails"
   gem "simplemde-rails"

@@ -9,7 +9,7 @@ gem "rails", "~> 6.1.4"
 
 gem "bootsnap", ">= 1.4.6", require: false
 gem "bootstrap", "~> 4.3", ">= 4.3.1"
-gem "clearance", "1.16.1"
+gem "clearance", "2.5.0"
 gem "font-awesome-sass", "~> 5.12.0", ">= 5.12.0"
 gem "metainspector"
 gem "pagy", "~> 2.1.2"

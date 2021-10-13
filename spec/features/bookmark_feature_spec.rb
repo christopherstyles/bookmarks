@@ -1,12 +1,14 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe 'Bookmark management', type: :feature do
+require "rails_helper"
+
+RSpec.describe "Bookmark management", type: :feature do
   let(:user) { create(:user) }
 
-  it 'enables me to create bookmarks' do
+  it "enables me to create bookmarks" do
     visit new_bookmark_path(as: user)
-    fill_in 'Url', with: Faker::Internet.url
-    click_button 'Create Bookmark'
-    expect(page).to have_text('Bookmark was successfully created.')
+    fill_in "Url", with: Faker::Internet.url
+    click_button "Create Bookmark"
+    expect(page).to have_text("Bookmark was successfully created.")
   end
 end

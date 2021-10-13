@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :bookmarks do
     get :search, on: :collection
@@ -9,5 +11,5 @@ Rails.application.routes.draw do
 
   resources :unfurls, only: [:index]
 
-  root to: 'bookmarks#new'
+  root to: "bookmarks#new"
 end

@@ -1,22 +1,24 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe 'bookmarks/edit', type: :view do
+require "rails_helper"
+
+RSpec.describe "bookmarks/edit", type: :view do
   let!(:bookmark) do
     assign(
       :bookmark,
-      create(:bookmark),
+      create(:bookmark)
     )
   end
 
-  it 'renders the edit bookmark form' do
+  it "renders the edit bookmark form" do
     render
 
     assert_select(
-      'form[action=?][method=?]',
+      "form[action=?][method=?]",
       bookmark_path(bookmark),
-      'post',
+      "post"
     ) do
-      assert_select 'textarea[name=?]', 'bookmark[url]'
+      assert_select "textarea[name=?]", "bookmark[url]"
     end
   end
 end

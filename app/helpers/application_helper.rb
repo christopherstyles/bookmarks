@@ -1,4 +1,6 @@
-require 'rouge/plugins/redcarpet'
+# frozen_string_literal: true
+
+require "rouge/plugins/redcarpet"
 
 class HTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
@@ -14,9 +16,9 @@ module ApplicationHelper
       options.deep_merge(
         data: {
           feather: name,
-          controller: 'feather',
-        },
-      ),
+          controller: "feather"
+        }
+      )
     )
   end
 
@@ -42,7 +44,7 @@ module ApplicationHelper
     {
       autolink: true,
       superscript: true,
-      fenced_code_blocks: true,
+      fenced_code_blocks: true
     }
   end
 
@@ -50,8 +52,8 @@ module ApplicationHelper
     {
       filter_html: true,
       hard_wrap: true,
-      link_attributes: { rel: 'nofollow', target: '_blank' },
-      space_after_headers: true,
+      link_attributes: {rel: "nofollow", target: "_blank"},
+      space_after_headers: true
     }
   end
 end

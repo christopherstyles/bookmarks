@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TagsController < ApplicationController
   include Pagy::Backend
 
@@ -5,10 +7,10 @@ class TagsController < ApplicationController
 
   def search
     @pagy, @tags = pagy(
-      Tag.where('name ILIKE ?', "#{params[:q]}%")
-         .order(name: :asc).all,
+      Tag.where("name ILIKE ?", "#{params[:q]}%")
+         .order(name: :asc).all
     )
 
-    render json: { tags: @tags }.to_json
+    render json: {tags: @tags}.to_json
   end
 end

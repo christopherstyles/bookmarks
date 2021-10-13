@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:

@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.0"
 
-gem "rails", "~> 6.0.2", ">= 6.0.2.1"
+gem "rails", "~> 6.1.4"
 
 gem "bootsnap", ">= 1.4.6", require: false
 gem "bootstrap", "~> 4.3", ">= 4.3.1"

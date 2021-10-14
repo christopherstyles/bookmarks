@@ -3,18 +3,26 @@
 require "rails_helper"
 
 RSpec.describe BookmarksController, type: :controller do
+  render_views
+
   let(:bookmark) { create(:bookmark) }
   let(:user) { create(:user) }
 
   before do
-    sign_in_as(user)
+    sign_in(user)
   end
 
   describe "GET #index" do
-    it "returns a success response" do
-      get :index, params: {}
-      expect(response).to be_successful
+    let(:req) do
+      get :index
     end
+
+    before do
+      sign_in(user)
+      req
+    end
+
+    it { should respond_with(:ok) }
   end
 
   describe "GET #show" do

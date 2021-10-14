@@ -3,7 +3,7 @@
 class BookmarksController < ApplicationController
   include Pagy::Backend
 
-  before_action :require_login
+  before_action :authenticate_user!
   before_action :set_bookmark, only: %i[show edit update destroy]
 
   def index

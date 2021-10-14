@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :bookmarks do
     get :search, on: :collection
   end

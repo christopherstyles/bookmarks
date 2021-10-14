@@ -9,9 +9,12 @@ gem "rails", "~> 6.1.4"
 
 gem "bootsnap", ">= 1.4.6", require: false
 gem "bootstrap", "~> 4.3", ">= 4.3.1"
-gem "clearance", "2.5.0"
+gem "devise-i18n"
+gem "devise-bootstrap-views", "~> 1.0"
+gem "devise", "~> 4.8"
 gem "font-awesome-sass", "~> 5.12.0", ">= 5.12.0"
 gem "metainspector"
+gem "name_of_person", "~> 1.0"
 gem "pagy", "~> 2.1.2"
 gem "pg"
 gem "puma", "~> 5.0"
@@ -26,7 +29,7 @@ gem "webpacker", "~> 5.4.3"
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
-  gem "faker", "~> 1.9.1"
+  gem "faker"
   gem "rspec-rails"
   gem "standard"
 end

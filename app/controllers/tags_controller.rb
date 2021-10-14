@@ -3,7 +3,7 @@
 class TagsController < ApplicationController
   include Pagy::Backend
 
-  before_action :require_login
+  before_action :authenticate_user!
 
   def search
     @pagy, @tags = pagy(

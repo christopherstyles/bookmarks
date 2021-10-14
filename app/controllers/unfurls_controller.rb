@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UnfurlsController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def index
     page = MetaInspector.new(

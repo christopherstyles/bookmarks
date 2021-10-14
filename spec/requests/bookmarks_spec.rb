@@ -5,12 +5,16 @@ require "rails_helper"
 RSpec.describe "Bookmarks", type: :request do
   let(:user) { create(:user) }
 
+  before do
+    sign_in(user)
+  end
+
   describe "GET /bookmarks" do
     it "displays bookmarks" do
       bookmark1 = create(:bookmark)
       bookmark2 = create(:bookmark)
 
-      get bookmarks_path(as: user)
+      get bookmarks_path
 
       expect(response).to have_http_status(:ok)
 

@@ -4,17 +4,17 @@
     span = feather_icon 'menu', width: '16', height: '16'
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-      - if signed_in?
+      - if user_signed_in?
         li.nav-item
           = link_to 'New Bookmark', new_bookmark_path, class: 'nav-link'
-    - if signed_in?
+    - if user_signed_in?
       = form_tag search_bookmarks_path, method: :get, class: 'form-inline my-2 my-lg-0' do
         input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" name="q" autocorrect="off" autocapitalize="none" value=params[:q]
         button.btn.btn-outline-secondary.my-2.my-sm-0 type="submit" Search
       ul.navbar-nav
         li.nav-item
-          = link_to t('.sign_out'), sign_out_path, method: :delete, class: 'nav-link'
+          = link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
     - else
       ul.navbar-nav.ml-auto
         li.nav-item
-          = link_to t('.sign_in'), sign_in_path, class: 'nav-link'
+          = link_to t('.sign_in'), new_user_session_path, class: 'nav-link'

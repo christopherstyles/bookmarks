@@ -7,7 +7,7 @@ RSpec.describe TagsController, type: :controller do
   let(:user) { create(:user) }
 
   before do
-    sign_in_as(user)
+    sign_in(user)
   end
 
   describe "GET #search" do

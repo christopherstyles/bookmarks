@@ -2,8 +2,8 @@
   "name": "bookmarks",
   "private": true,
   "engines": {
-    "node": ">= 6.0.0",
-    "yarn": ">= 0.25.2"
+    "node": ">= 14.0.0",
+    "yarn": ">= 1.22.19"
   },
   "dependencies": {
     "@rails/ujs": "^6.1.4-1",

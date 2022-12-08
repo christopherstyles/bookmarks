@@ -3,7 +3,7 @@
   "private": true,
   "engines": {
     "node": ">= 14.0.0",
-    "yarn": ">= 1.22.19"
+    "yarn": ">= 1.22.17"
   },
   "dependencies": {
     "@rails/ujs": "^6.1.4-1",

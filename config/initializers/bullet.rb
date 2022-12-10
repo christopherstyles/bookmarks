@@ -20,7 +20,9 @@ if Rails.env.development?
     # Bullet.add_footer = true
     # Bullet.skip_html_injection = false
     # Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
-    # Bullet.stacktrace_excludes = [ 'their_gem', 'their_middleware', ['my_file.rb', 'my_method'], ['my_file.rb', 16..20] ]
+    # Bullet.stacktrace_excludes = [
+    #  'their_gem', 'their_middleware', ['my_file.rb', 'my_method'], ['my_file.rb', 16..20]
+    # ]
     # Bullet.slack = { webhook_url: 'http://some.slack.url', channel: '#default', username: 'notifier' }
   end
 end

@@ -27,7 +27,7 @@ RSpec.describe BookmarksController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      get :show, params: {id: bookmark.to_param}
+      get :show, params: { id: bookmark.to_param }
       expect(response).to be_successful
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe BookmarksController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      get :edit, params: {id: bookmark.to_param}
+      get :edit, params: { id: bookmark.to_param }
       expect(response).to be_successful
     end
   end
@@ -50,19 +50,19 @@ RSpec.describe BookmarksController, type: :controller do
     context "with valid params" do
       it "creates a new Bookmark" do
         expect do
-          post :create, params: {bookmark: attributes_for(:bookmark)}
+          post :create, params: { bookmark: attributes_for(:bookmark) }
         end.to change(Bookmark, :count).by(1)
       end
 
       it "redirects to the created bookmark" do
-        post :create, params: {bookmark: attributes_for(:bookmark)}
+        post :create, params: { bookmark: attributes_for(:bookmark) }
         expect(response).to redirect_to(Bookmark.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {bookmark: attributes_for(:bookmark, :invalid)}
+        post :create, params: { bookmark: attributes_for(:bookmark, :invalid) }
         expect(response).to be_successful
       end
     end
@@ -71,12 +71,12 @@ RSpec.describe BookmarksController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) do
-        {url: Faker::Internet.url}
+        { url: Faker::Internet.url }
       end
 
       it "updates the requested bookmark" do
         bookmark
-        put :update, params: {id: bookmark.to_param, bookmark: new_attributes}
+        put :update, params: { id: bookmark.to_param, bookmark: new_attributes }
         bookmark.reload
         expect(bookmark.url).to eq(new_attributes[:url])
       end
@@ -84,7 +84,7 @@ RSpec.describe BookmarksController, type: :controller do
       it "redirects to the bookmark" do
         bookmark
         put :update, params: {
-          id: bookmark.to_param, bookmark: attributes_for(:bookmark)
+          id: bookmark.to_param, bookmark: attributes_for(:bookmark),
         }
         expect(response).to redirect_to(bookmark)
       end
@@ -93,7 +93,7 @@ RSpec.describe BookmarksController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
         put :update, params: {
-          id: bookmark.to_param, bookmark: attributes_for(:bookmark, :invalid)
+          id: bookmark.to_param, bookmark: attributes_for(:bookmark, :invalid),
         }
         expect(response).to be_successful
       end
@@ -104,13 +104,13 @@ RSpec.describe BookmarksController, type: :controller do
     it "destroys the requested bookmark" do
       bookmark
       expect do
-        delete :destroy, params: {id: bookmark.to_param}
+        delete :destroy, params: { id: bookmark.to_param }
       end.to change(Bookmark, :count).by(-1)
     end
 
     it "redirects to the bookmarks list" do
       bookmark
-      delete :destroy, params: {id: bookmark.to_param}
+      delete :destroy, params: { id: bookmark.to_param }
       expect(response).to redirect_to(bookmarks_url)
     end
   end

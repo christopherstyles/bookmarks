@@ -6,7 +6,7 @@ RSpec.describe "bookmarks/edit", type: :view do
   let!(:bookmark) do
     assign(
       :bookmark,
-      create(:bookmark)
+      create(:bookmark),
     )
   end
 
@@ -16,7 +16,7 @@ RSpec.describe "bookmarks/edit", type: :view do
     assert_select(
       "form[action=?][method=?]",
       bookmark_path(bookmark),
-      "post"
+      "post",
     ) do
       assert_select "textarea[name=?]", "bookmark[url]"
     end

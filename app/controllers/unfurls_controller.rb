@@ -5,7 +5,7 @@ class UnfurlsController < ApplicationController
 
   def index
     page = MetaInspector.new(
-      url_from_params
+      url_from_params,
     )
 
     render json: page.to_json

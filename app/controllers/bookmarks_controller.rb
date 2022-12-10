@@ -4,46 +4,36 @@ class BookmarksController < ApplicationController
   include Pagy::Backend
 
   before_action :authenticate_user!
-  before_action :set_bookmark, only: %i[show edit update destroy]
+  before_action :set_bookmark, only: %i(show edit update destroy)
 
   def index
     @pagy, @bookmarks = pagy(
-      Bookmark.includes(:tags).order(created_at: :desc).all, items: 10
+      Bookmark.includes(:tags).order(created_at: :desc).all, items: 10,
     )
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @bookmark = Bookmark.new
   end
 
-  def edit
-  end
+  def edit; end
 
-  # rubocop:disable Metrics/MethodLength
   def create
     @bookmark = Bookmark.new(bookmark_params)
 
     respond_to do |format|
       if @bookmark.save
-        format.html do
-          redirect_to @bookmark, notice: t(".success")
-        end
-
+        format.html { redirect_to @bookmark, notice: t(".success") }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }
-        format.json do
-          render json: @bookmark.errors, status: :unprocessable_entity
-        end
+        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
-  # rubocop:disable Metrics/MethodLength
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
@@ -57,7 +47,6 @@ class BookmarksController < ApplicationController
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
   def destroy
     @bookmark.destroy
@@ -65,7 +54,7 @@ class BookmarksController < ApplicationController
       format.html do
         redirect_to(
           bookmarks_url,
-          notice: t(".success")
+          notice: t(".success"),
         )
       end
       format.json { head :no_content }
@@ -77,10 +66,10 @@ class BookmarksController < ApplicationController
       Bookmark.includes(:tags, :taggings)
               .tagged_with(tags_from_params)
               .order(created_at: :desc),
-      items: 10
+      items: 10,
     )
 
-    render :index
+    render "index"
   end
 
   private

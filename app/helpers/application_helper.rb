@@ -16,19 +16,18 @@ module ApplicationHelper
       options.deep_merge(
         data: {
           feather: name,
-          controller: "feather"
-        }
-      )
+          controller: "feather",
+        },
+      ),
     )
   end
 
   def key_for_bootstrap(key = :info)
     case key.to_sym
-    when :notice then :success
-    when :success then :success
-    when :warning then :warning
-    when :error then :danger
-    else :info
+    when :notice, :success then "success"
+    when :warning then "warning"
+    when :error then "danger"
+    else "info"
     end
   end
 
@@ -44,7 +43,7 @@ module ApplicationHelper
     {
       autolink: true,
       superscript: true,
-      fenced_code_blocks: true
+      fenced_code_blocks: true,
     }
   end
 
@@ -52,8 +51,8 @@ module ApplicationHelper
     {
       filter_html: true,
       hard_wrap: true,
-      link_attributes: {rel: "nofollow", target: "_blank"},
-      space_after_headers: true
+      link_attributes: { rel: "nofollow", target: "_blank" },
+      space_after_headers: true,
     }
   end
 end

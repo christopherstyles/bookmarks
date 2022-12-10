@@ -28,7 +28,7 @@ gem "uglifier"
 gem "webpacker", "~> 5.4.3"
 
 group :development, :test do
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "byebug", platforms: %i(mri mingw x64_mingw)
   gem "factory_bot_rails"
   gem "faker"
   gem "rspec-rails"
@@ -44,9 +44,8 @@ group :development do
   gem "pry-awesome_print"
   gem "pry-rails"
   gem "rubocop", ">= 1.37.1"
-  gem "rubocop-github", ">= 0.20.0"
-  gem "rubocop-performance", "~> 1.7"
-  gem "rubocop-rails", "~> 2.16"
+  gem "rubocop-performance"
+  gem "rubocop-rails"
   gem "simplemde-rails"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"

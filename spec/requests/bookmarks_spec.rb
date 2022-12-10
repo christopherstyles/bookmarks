@@ -33,20 +33,20 @@ RSpec.describe "Bookmarks", type: :request do
 
       create(
         :tagging, taggable: bookmark1,
-                  tag: tag1
+                  tag: tag1,
       )
       create(
         :tagging, taggable: bookmark1,
-                  tag: tag2
+                  tag: tag2,
       )
 
       create(
         :tagging, taggable: bookmark2,
-                  tag: tag1
+                  tag: tag1,
       )
       create(
         :tagging, taggable: bookmark2,
-                  tag: tag2
+                  tag: tag2,
       )
 
       get search_bookmarks_path(q: "rubyonrails,composition", as: user)

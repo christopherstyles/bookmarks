@@ -26,7 +26,7 @@ RSpec.describe Bookmark, type: :model do
       bookmark.tag_list = "greens, vegetables"
       bookmark.save
       expect(bookmark.reload.tags.collect(&:name))
-        .to eq(%w[greens vegetables])
+        .to eq(%w(greens vegetables))
     end
   end
 

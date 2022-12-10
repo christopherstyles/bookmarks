@@ -1,8 +1,3 @@
-inherit_gem:
-  rubocop-github:
-    - config/default.yml
-    - config/rails.yml
-
 require:
   - rubocop-performance
   - rubocop-rails
@@ -19,9 +14,28 @@ Layout/LineLength:
   Enabled: true
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - "db/schema.rb"
+    - "spec/**/*"
+    - "Guardfile"
+
+Metrics/MethodLength:
+  Max: 12
+
+Rails/BulkChangeTable:
+  Exclude:
+    - "db/migrate/*"
+
+Rails/OutputSafety:
+  Enabled: true
+
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
   SafeAutoCorrect: true
+
+Style/Documentation:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   SafeAutoCorrect: true
@@ -30,11 +44,14 @@ Style/MutableConstant:
   Enabled: true
   SafeAutoCorrect: true
 
-Rails/OutputSafety:
-  Enabled: true
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%i": "()"
+    "%w": "()"
+    "%W": "()"
 
-Style/Documentation:
-  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
 Style/TrailingCommaInArguments:
   Enabled: true

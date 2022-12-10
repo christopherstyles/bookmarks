@@ -7,9 +7,9 @@ module Taggable
 
   included do
     has_many :taggings, -> { includes(:tag).order(:created_at) },
-      as: :taggable,
-      dependent: :destroy,
-      inverse_of: :taggable
+             as: :taggable,
+             dependent: :destroy,
+             inverse_of: :taggable
 
     has_many :tags, through: :taggings
 
@@ -37,10 +37,10 @@ module Taggable
 
     def taggable_ids_query(values)
       Tagging.joins(:tag).select(:taggable_id)
-        .where(taggable_type: name)
-        .where(tags: {name: values})
-        .having("COUNT(*) = #{values.length}")
-        .group(:taggable_id)
+             .where(taggable_type: name)
+             .where(tags: { name: values })
+             .having("COUNT(*) = #{values.length}")
+             .group(:taggable_id)
     end
   end
 end

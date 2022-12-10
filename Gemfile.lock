@@ -151,12 +151,14 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    guard-rubocop (1.5.0)
+      guard (~> 2.0)
+      rubocop (< 2.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.3)
-    language_server-protocol (3.17.0.2)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
@@ -308,9 +310,17 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.24.0)
       parser (>= 3.1.1.0)
+    rubocop-github (0.20.0)
+      rubocop (>= 1.37)
+      rubocop-performance (>= 1.15)
+      rubocop-rails (>= 2.17)
     rubocop-performance (1.15.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.17.3)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -353,10 +363,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    standard (1.19.1)
-      language_server-protocol (~> 3.17.0.2)
-      rubocop (= 1.39.0)
-      rubocop-performance (= 1.15.1)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
@@ -416,6 +422,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.12.0, >= 5.12.0)
   guard
   guard-rspec
+  guard-rubocop (~> 1.5.0)
   letter_opener
   listen (~> 3.2, >= 3.2.1)
   metainspector
@@ -430,6 +437,10 @@ DEPENDENCIES
   rouge
   rspec-rails
   rspec_junit_formatter
+  rubocop (>= 1.37.1)
+  rubocop-github (>= 0.20.0)
+  rubocop-performance (~> 1.7)
+  rubocop-rails (~> 2.16)
   sass-rails (>= 6)
   sassc (= 2.1.0)
   selenium-webdriver
@@ -438,7 +449,6 @@ DEPENDENCIES
   slim-rails (~> 3.2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  standard
   turbolinks (~> 5.2.0)
   uglifier
   web-console (>= 3.7.0)

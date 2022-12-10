@@ -1,3 +1,0 @@
-format: progress
-ignore:
-  - "db/schema.rb"

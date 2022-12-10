@@ -1,0 +1,49 @@
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+  Exclude:
+    - "test/tmp/**/*"
+    - "**/vendor/**/*"
+    - "**/node_modules/**/*"
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+  SafeAutoCorrect: true
+
+Style/FrozenStringLiteralComment:
+  SafeAutoCorrect: true
+
+Style/MutableConstant:
+  Enabled: true
+  SafeAutoCorrect: true
+
+Rails/OutputSafety:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma

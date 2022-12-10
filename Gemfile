@@ -26,7 +26,6 @@ gem "sassc", "2.1.0"
 gem "sass-rails", ">= 6"
 gem "slim-rails", "~> 3.2.0"
 gem "turbo-rails"
-gem "uglifier"
 
 group :development, :test do
   gem "byebug", platforms: %i(mri mingw x64_mingw)

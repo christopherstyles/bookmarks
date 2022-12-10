@@ -30,10 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  application:
+    navbar:
+      sign_in: "Sign In"
+      sign_out: "Sign Out"
   bookmarks:
     create:
-      success: 'Bookmark was successfully created.'
+      success: "Bookmark was successfully created."
     destroy:
-      success: 'Bookmark was successfully destroyed.'
+      success: "Bookmark was successfully destroyed."
     update:
-      success: 'Bookmark was successfully updated.'
+      success: "Bookmark was successfully updated."

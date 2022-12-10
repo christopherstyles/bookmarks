@@ -1,27 +1,28 @@
-= form_for @bookmark, data: { controller: 'markdown unfurl' } do |f|
-  - if @bookmark.errors.any?
-    .alert.alert-danger
-      h5.alert-heading = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
-      hr
-      ul.mb-0
-        - @bookmark.errors.full_messages.each do |message|
-          li = message
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control', autofocus: true, data: { target: 'unfurl.title' }
-  .form-group
-    = f.label :url
-    = f.text_area :url, class: 'form-control', data: { target: 'unfurl.url' }
-    small.form-text.text-muted
-      a href='#' data-action="unfurl#fetch" Unfurl?
-  .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
-    = f.label :tag_list
-    = f.text_field :tag_list, class: 'form-control', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
-  .form-group
-    = f.label :notes
-    = f.text_area :notes, class: 'form-control', data: { target: 'unfurl.notes markdown.textarea' }
-  .actions
-    .btn-group
-      = f.submit class: 'btn btn-outline-primary'
-      = link_to 'Show', @bookmark, class: 'btn btn-outline-secondary' if @bookmark.persisted?
-      = link_to 'Back', bookmarks_path, class: 'btn btn-outline-secondary'
+= turbo_frame_tag @bookmark do
+  = form_for @bookmark, data: { controller: 'markdown unfurl' } do |f|
+    - if @bookmark.errors.any?
+      .alert.alert-danger
+        h5.alert-heading = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
+        hr
+        ul.mb-0
+          - @bookmark.errors.full_messages.each do |message|
+            li = message
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control', data: { target: 'unfurl.title' }
+    .form-group
+      = f.label :url, autofocus: true
+      = f.text_area :url, class: 'form-control', data: { target: 'unfurl.url' }
+      small.form-text.text-muted
+        a href='#' data-action="unfurl#fetch" Unfurl?
+    .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
+      = f.label :tag_list
+      = f.text_field :tag_list, class: 'form-control', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
+    .form-group
+      = f.label :notes
+      = f.text_area :notes, class: 'form-control', data: { target: 'unfurl.notes markdown.textarea' }
+    .actions
+      .btn-group
+        = f.submit class: 'btn btn-outline-primary'
+        = link_to 'Show', @bookmark, class: 'btn btn-outline-secondary' if @bookmark.persisted?
+        = link_to 'Back', bookmarks_path, class: 'btn btn-outline-secondary'

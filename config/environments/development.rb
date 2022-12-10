@@ -58,8 +58,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: "lvh.me", port: ENV.fetch("PORT", 3000).to_i }
-
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
 
   config.action_mailer.perform_deliveries = true
 end

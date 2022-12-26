@@ -45,6 +45,7 @@ group :development do
   gem "rubocop", ">= 1.37.1"
   gem "rubocop-performance"
   gem "rubocop-rails"
+  gem "ruby-lsp", "~> 0.3.7"
   gem "simplemde-rails"
   gem "web-console"
 end

@@ -61,9 +61,9 @@ RSpec.describe BookmarksController, type: :controller do
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
+      it "returns an unsuccessful response" do
         post :create, params: { bookmark: attributes_for(:bookmark, :invalid) }
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end
@@ -91,11 +91,11 @@ RSpec.describe BookmarksController, type: :controller do
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
+      it "returns an unsuccessful response" do
         put :update, params: {
           id: bookmark.to_param, bookmark: attributes_for(:bookmark, :invalid),
         }
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end

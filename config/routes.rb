@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :unfurls, only: [:index]
 
   root to: "bookmarks#new"
+
+  get "/health", to: proc { [200, {}, ["OK"]] }
 end

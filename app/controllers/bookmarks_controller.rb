@@ -40,7 +40,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    redirect_to bookmarks_path, notice: t(".success")
+    redirect_to bookmarks_path, notice: t(".success"), status: :see_other
   end
 
   def search

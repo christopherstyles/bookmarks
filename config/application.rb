@@ -9,7 +9,8 @@ Bundler.require(*Rails.groups)
 module BookmarksApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
+    config.active_support.cache_format_version = 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -22,7 +23,6 @@ module BookmarksApp
     # config.assets.enabled = false
 
     config.generators do |g|
-      g.assets false
       g.orm :active_record, primary_key_type: :uuid
     end
   end

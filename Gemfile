@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.2.2"
 
-gem "rails", "~> 6.1.5"
+gem "rails", "~> 7.0.0"
 
 gem "bootsnap", ">= 1.4.6", require: false
 gem "bootstrap", "~> 4.3", ">= 4.3.1"
@@ -36,7 +36,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "bullet"
   gem "guard"
   gem "guard-rspec", require: false
   gem "guard-rubocop"

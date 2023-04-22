@@ -435,7 +435,7 @@ DEPENDENCIES
   pry-awesome_print
   pry-rails
   puma (~> 5.6)
-  rails (~> 7.0.0)
+  rails (~> 7.0.4.3)
   redcarpet (~> 3.5.0)
   redis (~> 4.0)
   rouge

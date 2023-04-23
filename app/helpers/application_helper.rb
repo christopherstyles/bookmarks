@@ -22,15 +22,6 @@ module ApplicationHelper
     )
   end
 
-  def key_for_bootstrap(key = :info)
-    case key.to_sym
-    when :notice, :success then "success"
-    when :warning then "warning"
-    when :error then "danger"
-    else "info"
-    end
-  end
-
   def markdown(text)
     renderer = HTML.new(markdown_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)

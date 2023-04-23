@@ -17,6 +17,6 @@ html lang="en"
     link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet"
   body
     = render "navbar"
-    = render "messages", flash: flash
+    = render "shared/flash", flash: flash
     = yield
     = render "shared/footer"

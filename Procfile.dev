@@ -1,2 +1,3 @@
 web: bin/rails server -p 3000
 redis: redis-server /usr/local/etc/redis.conf
+css: bin/rails tailwindcss:watch

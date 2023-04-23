@@ -306,19 +306,17 @@
   background-color: #1b1d1e;
 }
 
-pre {
-  &.highlight {
-    padding: 1rem;
-    -webkit-font-smoothing: antialiased;
-  }
+pre.highlight {
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 .highlight {
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
+}
 
-  pre {
-    overflow-x: scroll;
-    width: 100%;
-  }
+.highlight pre {
+  overflow-x: scroll;
+  width: 100%;
 }

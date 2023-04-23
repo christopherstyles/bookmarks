@@ -8,25 +8,21 @@ ruby "~> 3.2.2"
 gem "rails", "~> 7.0.4.3"
 
 gem "bootsnap", ">= 1.4.6", require: false
-gem "bootstrap", "~> 4.3", ">= 4.3.1"
 gem "devise", "~> 4.8"
-gem "devise-bootstrap-views", "~> 1.0"
 gem "devise-i18n"
-gem "font-awesome-sass", "~> 5.12.0", ">= 5.12.0"
 gem "importmap-rails"
-gem "jsbundling-rails"
 gem "metainspector"
 gem "name_of_person", "~> 1.0"
 gem "pagy", "~> 2.1.2"
 gem "pg"
+gem "propshaft"
 gem "puma", "~> 5.6"
 gem "redcarpet", "~> 3.5.0"
 gem "redis", "~> 4.0"
 gem "rouge"
-gem "sassc", "2.1.0"
-gem "sass-rails", ">= 6"
 gem "slim-rails", "~> 3.2.0"
 gem "stimulus-rails"
+gem "tailwindcss-rails"
 gem "turbo-rails"
 
 group :development, :test do
@@ -47,7 +43,6 @@ group :development do
   gem "rubocop-performance"
   gem "rubocop-rails"
   gem "ruby-lsp", "~> 0.3.7"
-  gem "simplemde-rails"
   gem "web-console"
 end
 

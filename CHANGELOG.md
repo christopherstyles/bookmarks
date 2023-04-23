@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.0] - 2023-04-22
+
+- Added TailwindCSS (via tailwindcss-rails), removed Bootstrap.
+- Added importmaps, and removed node/esbuild.
+- Replaced selectize with [tom-select](https://tom-select.js.org/), removed jQuery.
+
 ## [1.2.0] - 2020-03-21
 
 - Updated search behavior with multiple tag queries, so that searches find bookmarks with _all_ tags instead of _any_. (#33)

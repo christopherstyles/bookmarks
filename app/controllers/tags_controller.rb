@@ -11,6 +11,6 @@ class TagsController < ApplicationController
          .order(name: :asc).all,
     )
 
-    render json: { tags: @tags }.to_json
+    render json: @tags.to_json
   end
 end

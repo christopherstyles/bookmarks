@@ -15,12 +15,12 @@
       = f.text_area :url, class: 'form-control', data: { target: 'unfurl.url' }
       small.form-text.text-muted
         a href='#' data-action="unfurl#fetch" Unfurl?
-    .form-group data-controller="tags-list" data-tags-list-autocomplete-url=search_tags_path data-tags-list-options=options_for_tags.to_json
+    .form-group
       = f.label :tag_list
-      = f.text_field :tag_list, class: 'form-control', value: @bookmark.tags.map(&:name).join(','), data: { target: 'unfurl.tagsList tags-list.input' }
+      = f.text_field :tag_list, value: @bookmark.tags.map(&:name).join(','), data: { controller: 'tags-list', tags_list_autocomplete_url_value: search_tags_path, unfurl_target: 'tagsList' }
     .form-group
       = f.label :notes
-      = f.text_area :notes, class: 'form-control', data: { target: 'unfurl.notes markdown.textarea' }
+      = f.text_area :notes, class: 'form-control', data: { markdown_target: 'textarea', unfurl_target: 'notes' }
     .actions
       .btn-group
         = f.submit class: 'btn btn-outline-primary'

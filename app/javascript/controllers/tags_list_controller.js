@@ -1,28 +1,48 @@
-import { Controller } from 'stimulus';
-import $ from 'jquery';
-import 'selectize/dist/js/standalone/selectize';
+import { Controller } from '@hotwired/stimulus';
+import TomSelect from 'tom-select';
 
 export default class extends Controller {
-  static targets = ['input'];
+  static values = {
+    autocompleteUrl: String,
+    options: { type: Object, default: {} },
+  };
 
   connect() {
-    $(this.inputTarget).selectize({
-      delimiter: ',',
-      persist: false,
-      create: function(input) {
-        return {
-          id: input,
-          name: input,
-        };
-      },
-      valueField: 'name',
+    new TomSelect(this.element, {
+      ...this.defaultOptions,
+      ...this.optionsValue,
+    });
+  }
+
+  get defaultOptions() {
+    return {
+      closeAfterSelect: true,
+      createOnBlur: true,
+      create: true,
       labelField: 'name',
+      load: (query, callback) => {
+        const url = `${this.autocompleteUrlValue}?q=${encodeURIComponent(
+          query,
+        )}`;
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => {
+            callback(json);
+          })
+          .catch(() => {
+            callback();
+          });
+      },
+      persist: false,
+      placeholder: 'Add a tag',
+      plugins: ['caret_position'],
       searchField: 'name',
       selectOnTab: true,
-      openOnFocus: false,
-      hideSelected: true,
-      closeAfterSelect: true,
-      options: JSON.parse(this.data.get('options')),
-    });
+      sortField: {
+        field: 'name',
+        direction: 'asc',
+      },
+      valueField: 'name',
+    };
   }
 }

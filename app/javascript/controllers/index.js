@@ -3,9 +3,5 @@
 
 import { application } from './application';
 
-// Register each controller with Stimulus
-import controllers from './**/*_controller.js';
-
-controllers.forEach((controller) => {
-  application.register(controller.name, controller.module.default);
-});
+import { eagerLoadControllersFrom } from '@hotwired/stimulus-loading';
+eagerLoadControllersFrom('controllers', application);

@@ -1,6 +1,5 @@
-import { Controller } from 'stimulus';
-import has from 'lodash/has';
-import trim from 'lodash/trim';
+import { Controller } from '@hotwired/stimulus';
+import { has, trim } from 'lodash-es';
 
 export default class extends Controller {
   static targets = ['title', 'tagsList', 'url', 'notes'];

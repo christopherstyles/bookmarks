@@ -162,6 +162,9 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.1.5)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
     json (2.6.3)
@@ -372,6 +375,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     syntax_tree (4.3.0)
       prettier_print (>= 1.0.2)
     temple (0.8.2)
@@ -426,6 +431,7 @@ DEPENDENCIES
   guard
   guard-rspec
   guard-rubocop
+  importmap-rails
   jsbundling-rails
   letter_opener_web (~> 2.0)
   metainspector
@@ -451,6 +457,7 @@ DEPENDENCIES
   shoulda-matchers (~> 4.3.0)
   simplemde-rails
   slim-rails (~> 3.2.0)
+  stimulus-rails
   turbo-rails
   web-console
   webdrivers

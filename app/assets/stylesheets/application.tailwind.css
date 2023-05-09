@@ -1,4 +1,5 @@
 @import './plugins/rouge';
+@import './plugins/tom-select';
 
 @tailwind base;
 @tailwind components;

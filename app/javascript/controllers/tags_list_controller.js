@@ -5,6 +5,8 @@ export default class extends Controller {
   static values = {
     autocompleteUrl: String,
     options: { type: Object, default: {} },
+    placeholder: { type: String, default: 'Add a tag' },
+    queryParam: { type: String, default: 'q' },
   };
 
   connect() {
@@ -21,9 +23,9 @@ export default class extends Controller {
       create: true,
       labelField: 'name',
       load: (query, callback) => {
-        const url = `${this.autocompleteUrlValue}?q=${encodeURIComponent(
-          query,
-        )}`;
+        const url = `${this.autocompleteUrlValue}?${
+          this.queryParamValue
+        }=${encodeURIComponent(query)}`;
         fetch(url)
           .then((response) => response.json())
           .then((json) => {
@@ -34,8 +36,8 @@ export default class extends Controller {
           });
       },
       persist: false,
-      placeholder: 'Add a tag',
-      plugins: ['caret_position'],
+      placeholder: this.placeholderValue,
+      plugins: ['caret_position', 'remove_button'],
       searchField: 'name',
       selectOnTab: true,
       sortField: {

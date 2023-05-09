@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
 
   def index
     @pagy, @bookmarks = pagy(
-      Bookmark.includes(:tags).order(created_at: :desc).all, items: 10,
+      Bookmark.includes(:tags).order(created_at: :desc).all, items: 25,
     )
   end
 

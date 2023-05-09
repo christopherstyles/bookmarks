@@ -1,5 +1,7 @@
 import { Controller } from '@hotwired/stimulus';
-import { has, trim } from 'lodash-es';
+import { extract } from 'https://unpkg.com/@extractus/article-extractor@latest/dist/article-extractor.esm.js';
+import TurndownService from 'turndown';
+import { gfm } from 'turndown-plugin-gfm';
 
 export default class extends Controller {
   static targets = ['title', 'tagsList', 'url', 'notes'];
@@ -9,39 +11,49 @@ export default class extends Controller {
   async fetch(e) {
     e.preventDefault();
 
-    const url = encodeURIComponent(this.urlTarget.value);
-    const editor = $(this.notesTarget).data('editor');
-
-    $.getJSON(`/unfurls?url=${url}`, (data) => {
-      if (has(data, 'best_title')) {
-        this.titleTarget.value = data.best_title;
-      }
-
-      if (has(data, 'best_description')) {
-        editor.value(data.best_description);
-      }
-
-      if (has(data, 'images.best')) {
-        editor.value(`![](${data.images[0]})` + '\n\n' + editor.value());
-      } else if (has(data, "meta_tags.property['og:image']")) {
-        editor.value(
-          `![](${data.meta_tags.property['og:image']})` +
-            '\n\n' +
-            editor.value(),
-        );
-      }
-
-      if (has(data, 'meta_tags.name.keywords[0]')) {
-        const selectize = $(this.tagsListTarget)[0].selectize;
-        const keywords = data.meta_tags.name.keywords[0].split(',');
-
-        keywords.map((keyword) => {
-          const name = trim(keyword).toLowerCase();
-          selectize.addOption({ name });
-          selectize.addItem(name);
-          selectize.refreshItems();
-        });
-      }
+    const turndownService = new TurndownService({
+      headingStyle: 'atx',
+      codeBlockStyle: 'fenced',
+      emDelimiter: '*',
     });
+    turndownService.use(gfm);
+
+    let notes = '';
+
+    const article = await this.loadFeed(this.urlTarget.value, false);
+
+    if (this.hasNotesTarget) {
+      notes = `
+${'image' in article ? `![${article.title}](${article.image})` : ''}
+
+# ${article.title}
+
+Author: ${article.author}
+
+Source: ${article.url}
+Published: ${article.published}
+Source: ${article.source}
+
+Links:
+${article.links.join('\n')}
+
+> ${article.description}
+
+${turndownService.turndown(article.content)}
+`;
+
+      this.dispatch('update.notes', { detail: { content: notes } });
+    }
+
+    if ('title' in article && this.hasTitleTarget) {
+      this.dispatch('update.title', { detail: { title: article.title } });
+    }
+
+    console.log('got article:', article);
+  }
+
+  async loadFeed(url) {
+    const data = await extract(url, {}, {});
+    return Object.assign(Object.create(null), data); // use pure object to hold data
   }
 }

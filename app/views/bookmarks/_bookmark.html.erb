@@ -1,7 +1,9 @@
 <div class="w-full relative rounded-2xl shadow-lg bg-white border border-gray-100 flex flex-col justify-between">
   <div class="flex flex-col gap-4 px-5 py-4">
     <div>
-      <h2 class="text-xl font-medium"><%= bookmark.title %></h2>
+      <h2 class="text-xl font-medium">
+        <%= link_to bookmark.title, bookmark %>
+      </h2>
       <div class="text-sm truncate text-gray-600">
         <%= link_to bookmark.url, bookmark.url, target: "_blank" %>
       </div>

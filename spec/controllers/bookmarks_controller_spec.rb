@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe BookmarksController, type: :controller do
   render_views
 
-  let(:bookmark) { create(:bookmark) }
+  let(:bookmark) { create(:bookmark, user: user) }
   let(:user) { create(:user) }
 
   before do

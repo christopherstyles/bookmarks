@@ -4,12 +4,13 @@ require "rails_helper"
 
 RSpec.describe Bookmark, type: :model do
   let(:bookmark) { build_stubbed(:bookmark) }
+  let(:user) { create(:user) }
 
   it { is_expected.to validate_presence_of(:url) }
 
   # TODO: Extract to a shared example set
   describe "#tag_list" do
-    let(:bookmark) { create(:bookmark) }
+    let(:bookmark) { create(:bookmark, user: user) }
 
     it "returns a list of tags" do
       tag = Tag.create(name: "potatoes")
@@ -20,7 +21,7 @@ RSpec.describe Bookmark, type: :model do
   end
 
   describe "#tag_list=" do
-    let(:bookmark) { create(:bookmark) }
+    let(:bookmark) { create(:bookmark, user: user) }
 
     it "creates a list of tags" do
       bookmark.tag_list = "greens, vegetables"
@@ -31,7 +32,7 @@ RSpec.describe Bookmark, type: :model do
   end
 
   describe "after_save" do
-    let(:bookmark) { build(:bookmark) }
+    let(:bookmark) { build(:bookmark, user: user) }
 
     it "creates new tags" do
       bookmark.tag_list = "lentils, spicy"

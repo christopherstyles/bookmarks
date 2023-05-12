@@ -3,11 +3,14 @@
 require "rails_helper"
 
 RSpec.describe "bookmarks/show", type: :view do
+  let!(:user) { assign(:user, create(:user)) }
+
   before do
     @bookmark = assign(
       :bookmark,
       Bookmark.create!(
         url: "MyText",
+        user: user,
       ),
     )
   end

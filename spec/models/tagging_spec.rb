@@ -3,7 +3,8 @@
 require "rails_helper"
 
 RSpec.describe Tagging, type: :model do
-  let(:bookmark) { build(:bookmark) }
+  let(:user) { create(:user) }
+  let(:bookmark) { build(:bookmark, user: user) }
 
   describe "after_destroy" do
     it "removes unused tags" do

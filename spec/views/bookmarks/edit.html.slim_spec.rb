@@ -3,10 +3,12 @@
 require "rails_helper"
 
 RSpec.describe "bookmarks/edit", type: :view do
+  let!(:user) { assign(:user, create(:user)) }
+
   let!(:bookmark) do
     assign(
       :bookmark,
-      create(:bookmark),
+      create(:bookmark, user: user),
     )
   end
 

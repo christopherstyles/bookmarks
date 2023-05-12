@@ -11,25 +11,23 @@ RSpec.describe "Bookmarks", type: :request do
 
   describe "GET /bookmarks" do
     it "displays bookmarks" do
-      bookmark1 = create(:bookmark)
-      bookmark2 = create(:bookmark)
+      bookmark1 = create(:bookmark, user: user)
+      bookmark2 = create(:bookmark, user: user)
 
       get bookmarks_path
 
       expect(response).to have_http_status(:ok)
 
-      assert_select ".bookmark" do
-        assert_select ".bookmark__url", bookmark1.url
-        assert_select ".bookmark__url", bookmark2.url
-      end
+      assert_select "a", text: bookmark1.url
+      assert_select "a", text: bookmark2.url
     end
 
     it "displays search results" do
       tag1 = create(:tag, name: "rubyonrails")
       tag2 = create(:tag, name: "composition")
 
-      bookmark1 = create(:bookmark)
-      bookmark2 = create(:bookmark)
+      bookmark1 = create(:bookmark, user: user)
+      bookmark2 = create(:bookmark, user: user)
 
       create(
         :tagging, taggable: bookmark1,
@@ -53,10 +51,8 @@ RSpec.describe "Bookmarks", type: :request do
 
       expect(response).to have_http_status(:ok)
 
-      assert_select ".bookmark" do
-        assert_select ".bookmark__url", bookmark1.url
-        assert_select ".bookmark__url", bookmark2.url
-      end
+      assert_select "a", text: bookmark1.url
+      assert_select "a", text: bookmark2.url
     end
   end
 end

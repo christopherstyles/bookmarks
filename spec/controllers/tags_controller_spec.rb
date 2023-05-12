@@ -21,7 +21,7 @@ RSpec.describe TagsController, type: :controller do
         tag_rails = create(:tag, name: "rails")
 
         get :search, params: { q: "ra" }
-        expect(response.body).to eq({ tags: [tag_rails] }.to_json)
+        expect(response.body).to eq([tag_rails].to_json)
       end
     end
   end

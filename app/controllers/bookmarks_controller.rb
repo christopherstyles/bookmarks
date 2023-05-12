@@ -8,20 +8,20 @@ class BookmarksController < ApplicationController
 
   def index
     @pagy, @bookmarks = pagy(
-      Bookmark.includes(:tags).order(created_at: :desc).all, items: 25,
+      current_user.bookmarks.includes(:tags).order(created_at: :desc).all, items: 25,
     )
   end
 
   def show; end
 
   def new
-    @bookmark = Bookmark.new
+    @bookmark = current_user.bookmarks.new
   end
 
   def edit; end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = current_user.bookmarks.new(bookmark_params)
 
     if @bookmark.save
       redirect_to @bookmark, notice: t(".success")
@@ -45,7 +45,7 @@ class BookmarksController < ApplicationController
 
   def search
     @pagy, @bookmarks = pagy(
-      Bookmark.includes(:tags, :taggings)
+      current_user.bookmarks.includes(:tags, :taggings)
               .tagged_with(tags_from_params)
               .order(created_at: :desc),
       items: 10,
@@ -57,7 +57,7 @@ class BookmarksController < ApplicationController
   private
 
   def set_bookmark
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = current_user.bookmarks.find(params[:id])
   end
 
   def bookmark_params

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_09_231627) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_09_234413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_09_231627) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.text "notes"
+    t.uuid "user_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "taggings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -67,5 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_09_231627) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "taggings", "tags", on_delete: :cascade
 end

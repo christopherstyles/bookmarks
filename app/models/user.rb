@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :registerable, :rememberable, :trackable, :validatable
 
   has_person_name
+
+  has_many :bookmarks, dependent: :destroy
 end

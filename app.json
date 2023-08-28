@@ -1,13 +1,7 @@
 {
   "name": "Bookmarks",
   "description": "Save and search your own bookmarks",
-  "keywords": [
-    "bookmarks",
-    "web-browsing",
-    "bookmarks",
-    "bookmark",
-    "history"
-  ],
+  "keywords": ["bookmarks", "web-browsing", "bookmarks", "bookmark", "history"],
   "repository": "https://github.com/christopherstyles/bookmarks",
   "scripts": {
     "postdeploy": "bundle exec rake db:schema:load db:seed"
@@ -30,9 +24,7 @@
         "attempts": 3
       }
     ],
-    "addons": [
-      "heroku-postgresql"
-    ],
+    "addons": ["heroku-postgresql"],
     "buildpacks": [
       {
         "url": "https://github.com/heroku/heroku-buildpack-nodejs"
@@ -42,3 +34,4 @@
       }
     ]
   }
+}

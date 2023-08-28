@@ -14,24 +14,13 @@
       "type": "web"
     }
   },
-  "healthchecks": {
-    "web": [
-      {
-        "type": "startup",
-        "name": "web check",
-        "description": "Checking if the app responds to the /health/ready endpoint",
-        "path": "/health",
-        "attempts": 3
-      }
-    ],
-    "addons": ["heroku-postgresql"],
-    "buildpacks": [
-      {
-        "url": "https://github.com/heroku/heroku-buildpack-nodejs"
-      },
-      {
-        "url": "https://github.com/heroku/heroku-buildpack-ruby"
-      }
-    ]
-  }
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ]
 }
